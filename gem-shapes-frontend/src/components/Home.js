@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import './Home.css'; 
 
 const Home = () => {
   const [image, setImage] = useState(null);
@@ -32,7 +33,7 @@ const Home = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      console.log(response.data)
+      console.log(response.data);
       setPrediction(response.data);
     
       setLoading(false);
@@ -46,25 +47,30 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Upload Gem Image</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="file" accept="image/*" onChange={handleImageChange} />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Classifying...' : 'Classify Gem'}
-        </button>
-      </form>
+    <div className="home-container">
+      {/* Add Image */}
+      <img src={require('../assets/home-page.png')} alt="Gem" className="gem-image" />
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <button className="styled-button">Capture the Gem</button>
+      {/* <div className="card">
+        <h1 className="title">Upload Gem Image</h1>
+        <form onSubmit={handleSubmit} className="form-container">
+          <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" />
+          <button type="submit" disabled={loading} className="submit-button">
+            {loading ? 'Classifying...' : 'Classify Gem'}
+          </button>
+        </form>
 
-      {prediction && (
-        <div>
-          <h2>Predicted Gem Shape: {prediction}</h2>
-        </div>
-      )}
+        {error && <p className="error-message">{error}</p>}
+
+        {prediction && (
+          <div className="prediction-container">
+            <h2>Predicted Gem Shape: {prediction}</h2>
+          </div>
+        )}
+      </div> */}
     </div>
   );
 };
 
 export default Home;
-
