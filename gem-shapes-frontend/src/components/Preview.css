@@ -1,0 +1,50 @@
+.preview-container, .result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .captured-image {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    margin-top: 20px;
+  }
+  
+  .upload-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .upload-button:disabled {
+    background-color: #ccc;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .prediction-container {
+    margin-top: 20px;
+  }
+  
+  .result {
+    text-align: center;
+  }
+  
+  h2 {
+    color: green !important;
+    font-size: 1.5rem;
+  }
