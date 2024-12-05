@@ -1,0 +1,63 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  .webcam-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .styled-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .styled-button:hover {
+    background-color: #218838;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  select {
+    padding: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #28a745;
+  }
+  
+  video {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  img {
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+  }
+  
