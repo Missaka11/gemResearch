@@ -7,6 +7,8 @@ from PIL import Image
 from werkzeug.utils import secure_filename
 from shapes import GemShapes
 from flask_cors import CORS
+from config.ThreeDModelupload import three_d_model_bp 
+
 
 # Define base directory and create necessary folders
 BASE_DIRECTRY = os.path.dirname(os.path.abspath(__file__))
@@ -23,6 +25,9 @@ IMG_HEIGHT = 256
 IMG_WIDTH = 256
 
 app = Flask(__name__)
+
+# Register the blueprint
+app.register_blueprint(three_d_model_bp, url_prefix='/3dmodel')
 
 # Initialize CORS to allow all domains
 CORS(app)
