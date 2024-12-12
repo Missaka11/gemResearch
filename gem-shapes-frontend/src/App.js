@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Result from './components/Result';
 import Livereview from './components/Livereview'
 import Preview from './components/Preview'
+import ThreeDModelView from './components/3DModelView'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/result" element={<Result />} />
         <Route path="/live-review" element={<Livereview/>} />
         <Route path="/preview" element={<Preview/>} />
+        <Route path="/3d-view" element={<ThreeDModelView />} />
       </Routes>
     </Router>
   );

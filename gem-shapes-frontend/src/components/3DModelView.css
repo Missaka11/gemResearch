@@ -1,0 +1,29 @@
+.thumbnails-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+    overflow: hidden; 
+    border: 1px solid gray;
+    border-radius: 5px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 0;
+  }
+  
+  .thumbnail.selected {
+    border: 2px solid blue; 
+  }
