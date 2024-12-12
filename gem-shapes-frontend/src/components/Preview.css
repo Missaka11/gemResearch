@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     padding: 20px;
   }
   
@@ -47,4 +48,49 @@
   h2 {
     color: green !important;
     font-size: 1.5rem;
+  }
+
+  .synonyms-section {
+    margin-top: 30px;
+  }
+  
+  .synonyms-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .synonym-card {
+    width: 150px;
+    height: 200px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .synonym-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .synonym-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
   }

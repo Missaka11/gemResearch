@@ -6,7 +6,7 @@ import './Preview.css';
 const PreviewPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { imageDataUrl } = location.state || {};  // Retrieve the image URL from the state
+  const { imageDataUrl } = location.state || {}; 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [prediction, setPrediction] = useState(null);
@@ -22,7 +22,7 @@ const PreviewPage = () => {
     // Convert image data URL to a Blob (image file)
     const response = await fetch(imageDataUrl);
     const blob = await response.blob();
-    formData.append('imagefile', blob, 'gem.jpg');  // Add the image as a file to the FormData
+    formData.append('imagefile', blob, 'gem.jpg'); 
 
     setLoading(true);
     setError(null);
@@ -38,8 +38,8 @@ const PreviewPage = () => {
 
       setLoading(false);
 
-      // Navigate to the result page with the prediction
-      navigate('/result', { state: { prediction: apiResponse.data } });
+      // Navigate to the result page with the prediction and imageDataUrl
+      navigate('/result', { state: { prediction: apiResponse.data, imageDataUrl } });
     } catch (err) {
       setLoading(false);
       setError('Failed to classify the gem. Please try again.');
@@ -65,6 +65,7 @@ const PreviewPage = () => {
       </button>
 
       {error && <p className="error-message">{error}</p>}
+
       {prediction && (
         <div className="prediction-container">
           <h2>Predicted Gem Shape: {prediction}</h2>
