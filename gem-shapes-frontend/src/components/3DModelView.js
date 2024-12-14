@@ -53,16 +53,19 @@ const ThreeDModelView = () => {
 
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setClearColor(0xe0e0e0); // Light gray background
+      renderer.setClearColor(0xefefef); // Light gray background
       container.appendChild(renderer.domElement);
 
       // Add lights for realism
-      const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // Bright ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); // Bright ambient light
       scene.add(ambientLight);
 
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 2.0); // Strong directional light
       directionalLight.position.set(10, 10, 10);
       scene.add(directionalLight);
+
+      const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.2); // Additional illumination
+      scene.add(hemisphereLight);
 
       // Add OrbitControls for interaction
       const controls = new OrbitControls(camera, renderer.domElement);
@@ -123,14 +126,14 @@ const ThreeDModelView = () => {
       {loading && <p>Loading models...</p>}
       {error && <p>Error: {error}</p>}
 
-      <div id="threejs-container" style={{ width: '600px', height: '400px', margin: '0 auto' }}></div>
+      <div id="threejs-container" style={{ width: '600px', height: '400px', margin: '0 auto', backgroundColor: '#efefef' , border: '2px solid #808080'}}></div>
 
       <div className="thumbnails-container">
         {models.map((model, index) => (
           <div
             key={index}
             className="thumbnail"
-            style={{ border: selectedModel === model ? '2px solid blue' : '1px solid gray'}}
+            style={{ border: selectedModel === model ? '3px solid blue' : '1px solid gray'}}
             onClick={() => handleThumbnailClick(model)}
           >
             <img
