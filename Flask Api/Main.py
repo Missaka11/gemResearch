@@ -4,6 +4,12 @@ import os
 import tensorflow as tf
 import numpy as np
 
+from PIL import Image
+from io import BytesIO
+import random
+import base64
+
+
 app = Flask(__name__)
 CORS(app)  # Enable Cross-Origin Resource Sharing if React and Flask are on different origins
 
@@ -36,16 +42,24 @@ def prediction_probability_label(model, img_path, class_labels, is_rgb=True)->tu
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
+    # if 'image' not in request.files:
+    #     return jsonify({'error': 'No file part'}), 400
 
-    file = request.files['image']
+    # file = request.files['image']
 
-    if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
+    # if file.filename == '':
+    #     return jsonify({'error': 'No selected file'}), 400
 
-    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-    file.save(file_path)
+    # file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+    # file.save(file_path)
+    data = request.get_json(force=True)
+    image = data['image']
+    file_path = f'Flask Api/uploads/{random.randint(100000, 999999)}.png'
+    base64_url = image.split(",")[1]
+    decoded_bytes = base64.b64decode(base64_url)
+    image_bytes = BytesIO(decoded_bytes)
+    image = Image.open(image_bytes)
+    image.save(file_path, "PNG")
 
     newmodel = tf.keras.models.load_model("/Users/gevindu/SLIIT/Research /gemResearch/gems (1).h5")
     img_path = file_path
@@ -53,7 +67,7 @@ def upload_file():
 
     pred_label,pred_prob = prediction_probability_label(newmodel, img_path, class_labels)
 
-    return jsonify({'message': f'pred_label: {pred_label} pred_prob: {pred_prob}'})
+    return jsonify({'message': {'pred_label': pred_label, 'pred_prob': pred_prob}})
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -63,4 +77,3 @@ if __name__ == '__main__':
 # class_labels = ['Blue Sapphires', 'CatsEye', 'Pink Sapphires' ,'Topaz', 'Yellow Sapphires']
 
 # pred_label,pred_prob = prediction_probability_label(newmodel, img_path, class_labels)
-
