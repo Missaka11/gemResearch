@@ -1,0 +1,6 @@
+header {
+  background-color: aqua;
+}
+header > img {
+  width: 4rem;
+}
