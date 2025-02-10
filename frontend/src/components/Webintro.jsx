@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Webintro.css";
 
-const WebIntroSection = () => {
+const Webintro = () => {
   return (
     <section
       className="hero section mt-5"
@@ -42,4 +42,4 @@ const WebIntroSection = () => {
   );
 };
 
-export default WebIntroSection;
+export default Webintro;
