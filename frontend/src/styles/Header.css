@@ -10,7 +10,7 @@ header > div > img {
   width: 80%;
 }
 .bg-body-tertiary {
-  background-color: none;
+  background-color: white !important;
 }
 .nav-link:hover {
   color: #1c60c7;
