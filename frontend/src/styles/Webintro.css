@@ -1,0 +1,86 @@
+/* Animate the hero image */
+.hero-img img {
+  animation: floatAnimation 4s ease-in-out infinite;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Keyframes for smooth floating effect */
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Button hover effects */
+.btn-get-started,
+.btn-watch-video {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-get-started:hover {
+  background-color: darkblue;
+  transform: scale(1.05);
+}
+
+.btn-watch-video:hover {
+  background-color: darkblue;
+  transform: translateY(-3px);
+}
+
+/* Smooth fade-in effects */
+h1,
+p,
+.btn-get-started,
+.btn-watch-video {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Keyframes for fade-in up effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delays for staggered animations */
+h1 {
+  animation-delay: 0.3s;
+}
+
+p {
+  animation-delay: 0.5s;
+}
+
+.btn-get-started {
+  animation-delay: 0.7s;
+}
+
+.btn-watch-video {
+  animation-delay: 0.9s;
+}
+
+.btn-watch-video i {
+  margin-right: 5px;
+}
+
+.hero {
+  margin-top: 50px; /* Adjust the value as needed */
+}
