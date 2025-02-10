@@ -1,10 +1,14 @@
 import React from "react";
-import Logo from "../assets/images/logo.png";
+import "../styles/Header.css";
 
 export const Header = () => {
   return (
-    <div>
-      <img src={Logo} className="header-logo" />
-    </div>
+    <header>
+      <img
+        src="https://i.imgur.com/WHoCqFA.png"
+        className="header-Logo rounded-3"
+        alt="Logo image"
+      />
+    </header>
   );
 };
