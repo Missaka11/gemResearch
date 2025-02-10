@@ -10,10 +10,10 @@ export const Header = () => {
           className="header-Logo rounded-3"
           alt="Logo image"
         />
-        <nav class="navbar navbar-expand-lg ms-auto bg-body-tertiary">
-          <div class="container-fluid">
+        <nav className="navbar navbar-expand-lg ms-auto bg-body-tertiary">
+          <div className="container-fluid">
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
@@ -21,40 +21,43 @@ export const Header = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item px-4">
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item px-4">
                   <a
-                    class="nav-link header-nav-link fw-semibold"
+                    className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Home
                   </a>
                 </li>
-                <li class="nav-item px-4">
+                <li className="nav-item px-4">
                   <a
-                    class="nav-link header-nav-link fw-semibold"
+                    className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     About Us
                   </a>
                 </li>
-                <li class="nav-item px-4">
+                <li className="nav-item px-4">
                   <a
-                    class="nav-link header-nav-link fw-semibold"
+                    className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Contact
                   </a>
                 </li>
-                <li class="nav-item px-4">
+                <li className="nav-item px-4">
                   <a
-                    class="nav-link header-nav-link fw-semibold"
+                    className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
