@@ -1,6 +1,48 @@
 header {
-  background-color: aqua;
+  /* background-color: rgb(138, 200, 244); */
+  height: 4.5rem;
 }
-header > img {
+header > div > img {
   width: 4rem;
+  height: 4rem;
+}
+.header-content {
+  width: 80%;
+}
+.bg-body-tertiary {
+  background-color: none;
+}
+.nav-link:hover {
+  color: #1c60c7;
+}
+.header-signin {
+  border-radius: 2rem;
+  background-color: #1c60c7;
+  color: white;
+  width: 8rem;
+  height: 3rem;
+  justify-content: center;
+}
+.header-signin:hover {
+  background-color: #1955ae;
+  color: white;
+}
+
+.header-nav-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.header-nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #1c60c7;
+  transition: width 0.3s;
+}
+
+.header-nav-link:hover::after {
+  width: 100%;
+  /* transition: width 0.3s; */
 }
