@@ -10,7 +10,7 @@ export const Header = () => {
           className="header-Logo rounded-3"
           alt="Logo image"
         />
-        <nav class="navbar navbar-expand-lg ms-auto">
+        <nav class="navbar navbar-expand-lg ms-auto bg-body-tertiary">
           <div class="container-fluid">
             <button
               class="navbar-toggler"
@@ -26,22 +26,38 @@ export const Header = () => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item px-4">
-                  <a class="nav-link" aria-current="page" href="#">
+                  <a
+                    class="nav-link header-nav-link fw-semibold"
+                    aria-current="page"
+                    href="#"
+                  >
                     Home
                   </a>
                 </li>
                 <li class="nav-item px-4">
-                  <a class="nav-link" aria-current="page" href="#">
+                  <a
+                    class="nav-link header-nav-link fw-semibold"
+                    aria-current="page"
+                    href="#"
+                  >
                     About Us
                   </a>
                 </li>
                 <li class="nav-item px-4">
-                  <a class="nav-link" aria-current="page" href="#">
+                  <a
+                    class="nav-link header-nav-link fw-semibold"
+                    aria-current="page"
+                    href="#"
+                  >
                     Contact
                   </a>
                 </li>
                 <li class="nav-item px-4">
-                  <a class="nav-link" aria-current="page" href="#">
+                  <a
+                    class="nav-link header-nav-link fw-semibold"
+                    aria-current="page"
+                    href="#"
+                  >
                     Service
                   </a>
                 </li>
@@ -49,7 +65,10 @@ export const Header = () => {
             </div>
           </div>
         </nav>
-        <button type="button" className="btn header-signin my-auto ms-5">
+        <button
+          type="button"
+          className="btn header-signin my-auto ms-5 fw-semibold"
+        >
           Sign In
         </button>
       </div>
