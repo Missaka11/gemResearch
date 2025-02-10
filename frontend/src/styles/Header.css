@@ -1,6 +1,27 @@
 header {
-  background-color: aqua;
+  background-color: rgb(138, 200, 244);
+  height: 4.5rem;
 }
-header > img {
+header > div > img {
   width: 4rem;
+  height: 4rem;
+}
+.header-content {
+  width: 80%;
+}
+.nav-link:hover {
+  color: white;
+}
+.header-signin {
+  border-radius: 2rem;
+  background-color: #1c60c7;
+  color: white;
+  width: 8rem;
+  height: 3rem;
+  justify-content: center;
+}
+.header-signin:hover {
+  background-color: #1955ae;
+  color: white;
+  font-weight: 500;
 }
