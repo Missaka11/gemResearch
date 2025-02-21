@@ -12,7 +12,7 @@ function App() {
       <div class="container">
         <div class="row gy-4">
           <div
-            class="col-lg-4 d-flex align-items-stretch"
+            class="col-lg-3 d-flex align-items-stretch"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -55,7 +55,7 @@ function App() {
           </div>
 
           <div
-            class="col-lg-4 d-flex align-items-stretch"
+            class="col-lg-3 d-flex align-items-stretch"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -94,7 +94,46 @@ function App() {
           </div>
 
           <div
-            class="col-lg-4 d-flex align-items-stretch"
+            class="col-lg-3 d-flex align-items-stretch"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="team-member">
+              <div class="member-img">
+                <img
+                  src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-3.jpg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a href="">
+                    <i class="bi bi-twitter-x"></i>
+                  </a>
+                  <a href="">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a href="">
+                    <i class="bi bi-instagram"></i>
+                  </a>
+                  <a href="">
+                    <i class="bi bi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>Cook</span>
+                <p>
+                  Vero omnis enim consequatur. Voluptas consectetur unde qui
+                  molestiae deserunt. Voluptates enim aut architecto porro
+                  aspernatur molestiae modi.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 d-flex align-items-stretch"
             data-aos="fade-up"
             data-aos-delay="300"
           >
