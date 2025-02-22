@@ -2,6 +2,8 @@ import "./App.css";
 
 import Webintro from "./components/Webintro";
 import { Header } from "./components/Header";
+import { Link, NavLink } from "react-router-dom";
+import ImageCaptureRS from "./pages/ImageCaptureRS";
 
 function App() {
   return (
@@ -59,38 +61,42 @@ function App() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <div class="team-member">
-              <div class="member-img">
-                <img
-                  src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-2.jpg"
-                  class="img-fluid"
-                  alt=""
-                />
-                <div class="social">
-                  <a href="">
-                    <i class="bi bi-twitter-x"></i>
-                  </a>
-                  <a href="">
-                    <i class="bi bi-facebook"></i>
-                  </a>
-                  <a href="">
-                    <i class="bi bi-instagram"></i>
-                  </a>
-                  <a href="">
-                    <i class="bi bi-linkedin"></i>
-                  </a>
+            <NavLink
+              to={"./ImageCaptureRS"}
+              style={{ color: "#212529", textDecorationLine: "none" }}
+            >
+              <div class="team-member hover-effect">
+                <div class="member-img">
+                  <img
+                    src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-2.jpg"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="social">
+                    <a href="">
+                      <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="">
+                      <i class="bi bi-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>Gem Authentication</h4>
+                  <span>Patissier</span>
+                  <p>
+                    Find your gem real or synthetic by using AI image
+                    recognition.
+                  </p>
                 </div>
               </div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Patissier</span>
-                <p>
-                  Quo esse repellendus quia id. Est eum et accusantium pariatur
-                  fugit nihil minima suscipit corporis. Voluptate sed quas
-                  reiciendis animi neque sapiente.
-                </p>
-              </div>
-            </div>
+            </NavLink>
           </div>
 
           <div

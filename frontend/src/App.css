@@ -1,0 +1,16 @@
+.hover-effect {
+  transition: transform ease-in-out .3s;
+}
+
+.hover-effect:hover {
+  transform: scale(1.05);
+}
+
+/* Optional additional effects */
+.hover-effect:hover .member-info {
+  background-color: #f5f5f5; /* Light gray background on hover */
+}
+
+.hover-effect:hover img {
+  filter: brightness(0.9); /* Slightly darken image on hover */
+}
