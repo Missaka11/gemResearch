@@ -1,0 +1,51 @@
+.cameraAndCropApp {
+  text-align: center;
+  padding: 20px;
+}
+
+.cropAndUploadSection {
+  margin-top: 20px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.imageCropperDiv {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.uploading {
+  animation: spin 1s linear infinite;
+}
