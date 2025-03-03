@@ -4,12 +4,10 @@ import { Header } from "./components/Header";
 import { Link, NavLink } from "react-router-dom";
 import ImageCaptureRS from "./pages/ImageCaptureRS";
 
-
 function App() {
   return (
     <>
       <Header />
-
       <Webintro />
       <div class="container">
         <div class="row gy-4">

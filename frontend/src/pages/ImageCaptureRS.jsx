@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import WebCamera from "../components/WebCamera";
 import ImageCrop from "../components/ImageCrop";
 import "../styles/CameraAndCropApp.css";
