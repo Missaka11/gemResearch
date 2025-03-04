@@ -1,6 +1,9 @@
-/* .imageCropperDiv {
+.imageCropperDiv {
   width: 40rem;
   height: 40rem;
   position: relative;
-} */
+}
 
+.reactEasyCrop_Container {
+  border-radius: 1rem;
+}

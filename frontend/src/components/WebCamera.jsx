@@ -31,8 +31,9 @@ const WebCamera = ({ onCapture }) => {
       ) : (
         <>
           <Webcam
+            className="webcam-capture col-md-6 border border-3 rounded-4 mt-3"
             audio={false}
-            height={720}
+            height={400}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             width={1280}
