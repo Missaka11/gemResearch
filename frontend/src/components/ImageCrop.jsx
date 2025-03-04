@@ -9,9 +9,12 @@ const ImageCrop = ({ imageSrc, onCropComplete }) => {
 
   return (
     <div>
-      <h2>Image Cropping</h2>
-      <div className="imageCropperDiv mx-auto">
+      <div
+        className="imageCropperDiv mx-auto border border-3 rounded-4"
+        style={{ width: "43rem", height: "25rem" }}
+      >
         <Cropper
+          style={{borderRadius: "1rem"}}
           image={imageSrc}
           crop={crop}
           zoom={zoom}
