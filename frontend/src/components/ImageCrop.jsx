@@ -10,7 +10,7 @@ const ImageCrop = ({ imageSrc, onCropComplete }) => {
   return (
     <div>
       <div
-        className="imageCropperDiv mx-auto border border-3 rounded-4"
+        className="imageCropperDiv mx-auto"
         style={{ width: "43rem", height: "25rem" }}
       >
         <Cropper
