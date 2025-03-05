@@ -4,7 +4,7 @@ import "../styles/Header.css";
 export const Header = () => {
   return (
     <header className="pt-1 pb-1">
-      <div className="header-content mx-auto d-flex">
+      <div className="header-content mx-auto d-flex fixed-top">
         <img
           src="https://i.imgur.com/WHoCqFA.png"
           className="header-Logo rounded-3"
