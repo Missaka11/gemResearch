@@ -6,8 +6,13 @@ header > div > img {
   width: 4rem;
   height: 4rem;
 }
+
 .header-content {
-  width: 80%;
+  background-color: white !important;
+  width: 100%;
+  padding: 0 10%;
+  position: fixed;
+  z-index: 1000;
 }
 .bg-body-tertiary {
   background-color: white !important;
