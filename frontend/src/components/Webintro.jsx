@@ -1,6 +1,7 @@
 // filepath: /Users/gevindu/SLIIT/Research /gemResearch/frontend/src/components/Webintro.jsx
 import React from "react";
 import "../styles/Webintro.css";
+import { Link } from "react-router-dom";
 
 const Webintro = () => {
   return (
@@ -22,9 +23,9 @@ const Webintro = () => {
               services.
             </p>
             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-              <a href="#book-a-table" className="btn-get-started">
+              <Link href="#book-Link-table" className="btn-get-started">
                 Get service now
-              </a>
+              </Link>
             </div>
           </div>
           <div
