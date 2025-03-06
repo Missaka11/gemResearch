@@ -15,6 +15,7 @@
   filter: brightness(0.9); /* Slightly darken image on hover */
 }
 
+/* container */
 .container {
   padding: 100px 0;
 }
