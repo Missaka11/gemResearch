@@ -11,11 +11,7 @@ function App() {
       <Webintro />
       <div className="container">
         <div className="row gy-4">
-          <div
-            className="col-lg-3 d-flex align-items-stretch"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
+          <div className="col-lg-3 d-flex align-items-stretch"  data-aos="fade-up"  data-aos-delay="100">
             <div className="team-member">
               <div className="member-img">
                 <img
@@ -39,7 +35,7 @@ function App() {
                 </div>
               </div>
               <div className="member-info">
-                <h4 spellCheck="false">Walter White</h4>
+                <h4 spellCheck="false">Gem Identification</h4>
                 <span spellCheck="false">Master Chef</span>
                 <p spellCheck="false">
                   Velit aut quia fugit et et. Dolorum ea voluptate vel tempore
@@ -99,7 +95,11 @@ function App() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <div className="team-member">
+             <NavLink
+              to={"./ImageCaptureRS"}
+              style={{ color: "#212529", textDecorationLine: "none" }}
+            >
+            <div className="team-member hover-effect">
               <div className="member-img">
                 <img
                   src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-3.jpg"
@@ -122,7 +122,7 @@ function App() {
                 </div>
               </div>
               <div className="member-info">
-                <h4>William Anderson</h4>
+                <h4>Jewellery Designs</h4>
                 <span>Cook</span>
                 <p>
                   Vero omnis enim consequatur. Voluptas consectetur unde qui
@@ -131,6 +131,7 @@ function App() {
                 </p>
               </div>
             </div>
+            </NavLink>
           </div>
 
           <div
