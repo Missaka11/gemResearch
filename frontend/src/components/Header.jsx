@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="pb-1">
+    <header className="header">
       <div className="header-content mx-auto d-flex">
         <img
           src="https://i.imgur.com/WHoCqFA.png"
