@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/Header.css";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
-    <header className="pt-1 pb-1">
+    <header className="pb-1">
       <div className="header-content mx-auto d-flex">
         <img
           src="https://i.imgur.com/WHoCqFA.png"
@@ -29,40 +30,40 @@ export const Header = () => {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item px-4">
-                  <a
+                  <Link
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item px-4">
-                  <a
+                  <Link
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item px-4">
-                  <a
+                  <Link
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item px-4">
-                  <a
+                  <Link
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Service
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -1,5 +1,5 @@
 .hover-effect {
-  transition: transform ease-in-out .3s;
+  transition: transform ease-in-out 0.3s;
 }
 
 .hover-effect:hover {
@@ -14,3 +14,4 @@
 .hover-effect:hover img {
   filter: brightness(0.9); /* Slightly darken image on hover */
 }
+

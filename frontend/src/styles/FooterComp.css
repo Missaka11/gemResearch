@@ -1,0 +1,21 @@
+.footer-emailDiv {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  color: #6c757d;
+  font-size: 0.8em;
+  font-weight: 300;
+  border-top: 1px solid #e9ecef;
+}
+.footer-copyrigitDiv {
+  background-color: #343a40;
+  padding: 20px 0;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  color: #6c757d;
+  font-size: 0.8em;
+  font-weight: 300;
+}
