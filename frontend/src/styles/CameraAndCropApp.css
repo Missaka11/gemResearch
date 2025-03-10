@@ -1,5 +1,4 @@
 .cameraAndCropApp {
-  text-align: center;
   padding: 20px;
 }
 
@@ -9,6 +8,8 @@
 
 .buttons {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .buttons button {
@@ -48,4 +49,11 @@
 
 .uploading {
   animation: spin 1s linear infinite;
+}
+
+.predictionResult{
+  padding: 0 10%;
+}
+.cameraAndCropApp-header{
+  padding: 0 10%;
 }

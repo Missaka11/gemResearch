@@ -22,7 +22,7 @@ const WebCamera = ({ onCapture }) => {
   };
 
   return (
-    <div className="container">
+    <div className="container p-0">
       {imgSrc ? (
         <>
           <img src={imgSrc} alt="webcam" />

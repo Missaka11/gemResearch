@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import WebCamera from "../components/WebCamera";
 import ImageCrop from "../components/ImageCrop";
 import "../styles/CameraAndCropApp.css";
+import { Header } from "../components/Header";
+import CanonImage from "../assets/images/CanonImage.png";
+import "../styles/ImageCaptureRS.css";
+import { FooterComp } from "../components/FooterComp";
 
 const ImageCaptureRS = () => {
   const [capturedImage, setCapturedImage] = useState(null);
@@ -10,18 +14,6 @@ const ImageCaptureRS = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [predictionResult, setPredictionResult] = useState(null);
   const [categories, setCategories] = useState([]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://127.0.0.1:5000/categories")
-  //     .then((response) => {
-  //       console.log(response.data.categories);
-  //       setCategories(response.data.categories);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching categories:", error);
-  //     });
-  // }, []);
 
   const handleCapture = (imageSrc) => {
     setCapturedImage(imageSrc);
@@ -72,42 +64,66 @@ const ImageCaptureRS = () => {
   };
 
   return (
-    <div className="cameraAndCropApp">
-      <h1>Camera and Crop Application</h1>
-      {!capturedImage ? (
-        <WebCamera onCapture={handleCapture} />
-      ) : (
-        <div className="cropAndUploadSection">
-          <ImageCrop
-            imageSrc={capturedImage}
-            onCropComplete={handleCropComplete}
-          />
-          <div className="buttons">
-            <button onClick={handleRetake}>Retake</button>
-            <button onClick={handleUpload} disabled={isUploading}>
-              {isUploading ? "Uploading..." : "Upload"}
-            </button>
-          </div>
-          {predictionResult && (
-            <div className="predictionResult">
-              <h2>Prediction Result</h2>
-              <p>Predicted Class: {predictionResult.predicted_class}</p>
-              <p>Confidence: {predictionResult.confidence}</p>
-              <p>All Probabilities:</p>
-              <ul>
-                {Object.entries(predictionResult.all_probabilities).map(
-                  ([category, probability]) => (
-                    <li key={category}>
-                      {category}: {probability}
-                    </li>
-                  )
-                )}
-              </ul>
+    <main className="imageCaptureMainDiv">
+      <Header />
+      <div className="cameraAndCropApp-header">
+        <h3>Camera and Crop Application</h3>
+      </div>
+      <div className="cameraAndCropApp">
+        <div>
+          <img src={CanonImage} className="cameraSection-image" />
+
+          {!capturedImage ? (
+            <WebCamera onCapture={handleCapture} />
+          ) : (
+            <div className="cropAndUploadSection">
+              <ImageCrop
+                imageSrc={capturedImage}
+                onCropComplete={handleCropComplete}
+              />
+              <div className="buttons">
+                <button onClick={handleRetake}>Retake</button>
+                <button onClick={handleUpload} disabled={isUploading}>
+                  {isUploading ? "Uploading..." : "Upload"}
+                </button>
+              </div>
+              {predictionResult ? (
+                <div className="predictionResult">
+                  <h2>Prediction Result</h2>
+                  <h5>Predicted Class: {predictionResult.predicted_class}</h5>
+                  <span>Confidence: {predictionResult.confidence}</span>
+                  <div className="progress">
+                    <div
+                      className="progress-bar"
+                      role="progressbar"
+                      style={{ width: `${predictionResult.confidence}` }}
+                      aria-valuenow={predictionResult.confidence}
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    >
+                      {predictionResult.confidence}
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <p>All Probabilities:</p>
+                    <ul>
+                      {Object.entries(predictionResult.all_probabilities).map(
+                        ([category, probability]) => (
+                          <li key={category}>
+                            {category}: {probability}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                </div>
+              ) : null}
             </div>
           )}
         </div>
-      )}
-    </div>
+      </div>
+      <FooterComp />
+    </main>
   );
 };
 
