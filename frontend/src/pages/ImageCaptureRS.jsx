@@ -90,7 +90,9 @@ const ImageCaptureRS = () => {
               {predictionResult ? (
                 <div className="predictionResult">
                   <h2>Prediction Result</h2>
-                  <h5>Predicted Class: {predictionResult.predicted_class}</h5>
+                  <h5 className="text-center">
+                    Predicted Class: {predictionResult.predicted_class}
+                  </h5>
                   <span>Confidence: {predictionResult.confidence}</span>
                   <div className="progress">
                     <div
