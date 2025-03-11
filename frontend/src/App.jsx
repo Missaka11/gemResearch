@@ -96,7 +96,8 @@ function App() {
             data-aos-delay="300"
           >
              <NavLink
-              to={"./ImageCaptureRS"}
+             className={"navLinkApp"}
+              to={"./gemShapeCapture"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
             <div className="team-member hover-effect">
@@ -123,7 +124,6 @@ function App() {
               </div>
               <div className="member-info">
                 <h4>Jewellery Designs</h4>
-                <span>Cook</span>
                 <p>
                   Vero omnis enim consequatur. Voluptas consectetur unde qui
                   molestiae deserunt. Voluptates enim aut architecto porro
