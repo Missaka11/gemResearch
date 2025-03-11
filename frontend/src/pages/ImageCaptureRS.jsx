@@ -7,6 +7,7 @@ import { Header } from "../components/Header";
 import GemCapture from "../assets/images/gemCapture5.png";
 import "../styles/ImageCaptureRS.css";
 import { FooterComp } from "../components/FooterComp";
+import Button from "react-bootstrap/Button";
 
 const ImageCaptureRS = () => {
   const [capturedImage, setCapturedImage] = useState(null);
@@ -80,10 +81,21 @@ const ImageCaptureRS = () => {
                 onCropComplete={handleCropComplete}
               />
               <div className="buttons">
-                <button onClick={handleRetake}>Retake</button>
-                <button onClick={handleUpload} disabled={isUploading}>
-                  {isUploading ? "Uploading..." : "Upload"}
-                </button>
+                <Button
+                  className="rounded-pill"
+                  variant="outline-primary"
+                  onClick={handleRetake}
+                >
+                  Retake
+                </Button>
+                <Button
+                  className="rounded-pill"
+                  variant="success"
+                  onClick={handleUpload}
+                  disabled={isUploading}
+                >
+                  {isUploading ? "identifying..." : "Identify"}
+                </Button>
               </div>
               {predictionResult ? (
                 <div className="predictionResult">
