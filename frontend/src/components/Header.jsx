@@ -1,16 +1,18 @@
 import React from "react";
 import "../styles/Header.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   return (
     <header className="header">
       <div className="header-content mx-auto d-flex">
-        <img
-          src="https://i.imgur.com/WHoCqFA.png"
-          className="header-Logo rounded-3"
-          alt="Logo image"
-        />
+        <NavLink className={"nav-link"} to={"/"}>
+          <img
+            src="https://i.imgur.com/WHoCqFA.png"
+            className="header-Logo rounded-3"
+            alt="Logo image"
+          />
+        </NavLink>
         <nav className="navbar navbar-expand-lg ms-auto bg-body-tertiary">
           <div className="container-fluid">
             <button
@@ -30,40 +32,41 @@ export const Header = () => {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item px-4">
-                  <Link
+                  <NavLink
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
-                    href="#"
+                    to={"/"}
+                    style={{ color: "#212529" }}
                   >
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item px-4">
-                  <Link
+                  <NavLink
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     About Us
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item px-4">
-                  <Link
+                  <NavLink
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Contact
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item px-4">
-                  <Link
+                  <NavLink
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
                     href="#"
                   >
                     Service
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>

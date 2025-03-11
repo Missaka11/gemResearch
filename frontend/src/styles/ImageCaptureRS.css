@@ -1,3 +1,9 @@
+.imageCaptureMainDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .cameraSection-image {
   height: 5rem;
   width: 100%;

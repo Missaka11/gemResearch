@@ -4,7 +4,7 @@ import WebCamera from "../components/WebCamera";
 import ImageCrop from "../components/ImageCrop";
 import "../styles/CameraAndCropApp.css";
 import { Header } from "../components/Header";
-import CanonImage from "../assets/images/CanonImage.png";
+import GemCapture from "../assets/images/gemCapture5.png";
 import "../styles/ImageCaptureRS.css";
 import { FooterComp } from "../components/FooterComp";
 
@@ -66,12 +66,10 @@ const ImageCaptureRS = () => {
   return (
     <main className="imageCaptureMainDiv">
       <Header />
-      <div className="cameraAndCropApp-header">
-        <h3>Camera and Crop Application</h3>
-      </div>
-      <div className="cameraAndCropApp">
+
+      <div>
         <div>
-          <img src={CanonImage} className="cameraSection-image" />
+          <img src={GemCapture} className="cameraSection-image" />
 
           {!capturedImage ? (
             <WebCamera onCapture={handleCapture} />

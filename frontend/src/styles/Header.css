@@ -2,7 +2,7 @@ header {
   background-color: white;
   height: 4.5rem;
 }
-header > div > img {
+.header-Logo {
   width: 4rem;
   height: 4rem;
 }
