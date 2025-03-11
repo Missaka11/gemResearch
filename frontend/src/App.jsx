@@ -3,6 +3,8 @@ import Webintro from "./components/Webintro";
 import { Header } from "./components/Header";
 import { Link, NavLink } from "react-router-dom";
 import { FooterComp } from "./components/FooterComp";
+import gemPhotography from "./assets/images/gemPhotography2.jpg";
+import whiteboxGem from "./assets/images/whiteboxGem.jpg";
 
 function App() {
   return (
@@ -11,28 +13,18 @@ function App() {
       <Webintro />
       <div className="container">
         <div className="row gy-4">
-          <div className="col-lg-3 d-flex align-items-stretch"  data-aos="fade-up"  data-aos-delay="100">
-            <div className="team-member">
+          <div
+            className="col-lg-3 d-flex align-items-stretch category-cards"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            {/* <NavLink
+              to={"./Upload"}
+              style={{ color: "#212529", textDecorationLine: "none" }}
+            > */}
+            <div className="team-member hover-effect">
               <div className="member-img">
-                <img
-                  src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-1.jpg"
-                  className="img-fluid"
-                  alt=""
-                />
-                <div className="social">
-                  <Link href="">
-                    <i className="bi bi-twitter-x"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-facebook"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-instagram"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-linkedin"></i>
-                  </Link>
-                </div>
+                <img src={gemPhotography} className="img-fluid" alt="" />
               </div>
               <div className="member-info">
                 <h4 spellCheck="false">Gem Identification</h4>
@@ -44,39 +36,25 @@ function App() {
                 </p>
               </div>
             </div>
+            {/* </NavLink> */}
           </div>
 
           <div
-            className="col-lg-3 d-flex align-items-stretch"
+            className="col-lg-3 d-flex align-items-stretch category-cards"
             data-aos="fade-up"
-            data-aos-delay="200"
+            data-aos-delay="300"
           >
             <NavLink
-              className={"navLinkApp"}
               to={"./ImageCaptureRS"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
               <div className="team-member hover-effect">
                 <div className="member-img">
                   <img
-                    src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-2.jpg"
-                    className="img-fluid"
+                    src={whiteboxGem}
+                    className="img-fluid category-cover-images"
                     alt=""
                   />
-                  <div className="social">
-                    <Link href="">
-                      <i className="bi bi-twitter-x"></i>
-                    </Link>
-                    <Link href="">
-                      <i className="bi bi-facebook"></i>
-                    </Link>
-                    <Link href="">
-                      <i className="bi bi-instagram"></i>
-                    </Link>
-                    <Link href="">
-                      <i className="bi bi-linkedin"></i>
-                    </Link>
-                  </div>
                 </div>
                 <div className="member-info">
                   <h4>Gem Authentication</h4>
@@ -91,14 +69,40 @@ function App() {
           </div>
 
           <div
-            className="col-lg-3 d-flex align-items-stretch"
+            className="col-lg-3 d-flex align-items-stretch category-cards"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-             <NavLink
-              to={"./ImageCaptureRS"}
+            <NavLink
+              // to={"./ImageCaptureRS"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
+              <div className="team-member hover-effect">
+                <div className="member-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=70&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    className="img-fluid category-cover-images"
+                    alt=""
+                  />
+                </div>
+                <div className="member-info">
+                  <h4>Jewellery Designs</h4>
+                  <span>Cook</span>
+                  <p>
+                    Vero omnis enim consequatur. Voluptas consectetur unde qui
+                    molestiae deserunt. Voluptates enim aut architecto porro
+                    aspernatur molestiae modi.
+                  </p>
+                </div>
+              </div>
+            </NavLink>
+          </div>
+
+          <div
+            className="col-lg-3 d-flex align-items-stretch category-cards"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div className="team-member hover-effect">
               <div className="member-img">
                 <img
@@ -106,60 +110,6 @@ function App() {
                   className="img-fluid"
                   alt=""
                 />
-                <div className="social">
-                  <Link href="">
-                    <i className="bi bi-twitter-x"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-facebook"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-instagram"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-linkedin"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="member-info">
-                <h4>Jewellery Designs</h4>
-                <span>Cook</span>
-                <p>
-                  Vero omnis enim consequatur. Voluptas consectetur unde qui
-                  molestiae deserunt. Voluptates enim aut architecto porro
-                  aspernatur molestiae modi.
-                </p>
-              </div>
-            </div>
-            </NavLink>
-          </div>
-
-          <div
-            className="col-lg-3 d-flex align-items-stretch"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <div className="team-member">
-              <div className="member-img">
-                <img
-                  src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-3.jpg"
-                  className="img-fluid"
-                  alt=""
-                />
-                <div className="social">
-                  <Link href="">
-                    <i className="bi bi-twitter-x"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-facebook"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-instagram"></i>
-                  </Link>
-                  <Link href="">
-                    <i className="bi bi-linkedin"></i>
-                  </Link>
-                </div>
               </div>
               <div className="member-info">
                 <h4>William Anderson</h4>
