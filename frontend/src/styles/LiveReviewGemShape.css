@@ -1,0 +1,68 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color:  rgb(192, 231, 231);
+    height: 92vh;
+  }
+  
+  .webcam-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .styled-button, .styled-button-2 {
+    padding: 15px 50px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  .styled-button-2 {
+    background-color: rgb(224, 80, 22);
+  }
+  
+  .styled-button:hover {
+    background-color: blue;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  select {
+    padding: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  select:focus {
+    outline: none;
+    border-color: #28a745;
+  }
+  
+  video {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* img {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+  } */
+  
