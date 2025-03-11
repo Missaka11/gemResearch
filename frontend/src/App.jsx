@@ -75,6 +75,7 @@ function App() {
           >
             <NavLink
               // to={"./ImageCaptureRS"}
+
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
               <div className="team-member hover-effect">
