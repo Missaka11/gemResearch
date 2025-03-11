@@ -6,7 +6,7 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header-content mx-auto d-flex">
-        <NavLink className={"nav-link"} to={"/"}>
+        <NavLink to={"/"}>
           <img
             src="https://i.imgur.com/WHoCqFA.png"
             className="header-Logo rounded-3"
