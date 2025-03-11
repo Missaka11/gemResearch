@@ -2,7 +2,6 @@
 .hero-img img {
   animation: floatAnimation 4s ease-in-out infinite;
   transition: transform 0.3s ease-in-out;
- 
 }
 
 .animated {
@@ -25,7 +24,6 @@
 
 .section {
   width: 100%;
-  height: 100vh;
   margin: 0;
   background-color: rgb(192, 231, 231);
   padding: 10px 0;
@@ -35,6 +33,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.hero-img {
+  margin-top: 1rem;
 }
 
 /* Button hover effects */
