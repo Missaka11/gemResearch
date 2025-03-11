@@ -21,14 +21,22 @@
 }
 
 .team-member {
-   border-radius: 5px !important;
+  border-radius: 5px !important;
 }
 
 .img-fluid {
   margin: 0 !important;
 }
 
-.row>* {
+.row > * {
   margin-top: 0;
 }
+.category-cards{
+  cursor: pointer;
+}
 
+.category-cover-images {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}

@@ -14,8 +14,9 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route index element={<App />} />
-        <Route path="/" element={<App />}/>
-        <Route path="/ImageCaptureRS" element={<ImageCaptureRS />}/>
+        <Route path="/" element={<App />} />
+        <Route path="/ImageCaptureRS" element={<ImageCaptureRS />} />
+        {/* <Route path="/Upload" element={<Upload />} /> */}
         <Route path="/GemShapeCapture" element={<GemShapeCapture />}/>
         <Route path="/GemShapeCapture/LiveReviewGemShape" element={<LiveReviewGemShape />}/>
         <Route path="/GemShapePreview" element={<GemShapePreview />}/>
