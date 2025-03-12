@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <Webintro />
-      <div className="container">
+      <div className="container functionImg-container">
         <div className="row gy-4">
           <div
             className="col-lg-3 d-flex align-items-stretch category-cards"
@@ -23,7 +23,7 @@ function App() {
               // to={"./GemShapeCapture"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
-              <div className="team-member hover-effect">
+              <div className="team-member hover-effect image-card">
                 <div className="member-img">
                   <img src={gemPhotography} className="img-fluid" alt="" />
                 </div>
@@ -49,7 +49,7 @@ function App() {
               to={"./ImageCaptureRS"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
-              <div className="team-member hover-effect">
+              <div className="team-member hover-effect image-card">
                 <div className="member-img">
                   <img
                     src={whiteboxGem}
@@ -78,7 +78,7 @@ function App() {
               to={"./GemShapeCapture"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
-              <div className="team-member hover-effect">
+              <div className="team-member hover-effect image-card">
                 <div className="member-img">
                   <img
                     src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?q=70&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -104,7 +104,7 @@ function App() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <div className="team-member hover-effect">
+            <div className="team-member hover-effect image-card">
               <div className="member-img">
                 <img
                   src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-3.jpg"
