@@ -88,11 +88,12 @@ function App() {
                 </div>
                 <div className="member-info">
                   <h4>Jewellery Designs</h4>
-                  <span>Cook</span>
                   <p>
-                    Vero omnis enim consequatur. Voluptas consectetur unde qui
-                    molestiae deserunt. Voluptates enim aut architecto porro
-                    aspernatur molestiae modi.
+                    Discover a wide range of exquisite jewelry designs in 3D!
+                    From elegant earrings to stunning rings, necklaces, and
+                    bracelets, our interactive models allow you to see every
+                    detail before making your purchase. Experience the beauty
+                    and craftsmanship of our designs like never before!
                   </p>
                 </div>
               </div>
