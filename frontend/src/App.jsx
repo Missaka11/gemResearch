@@ -20,7 +20,7 @@ function App() {
             data-aos-delay="300"
           >
             <NavLink
-              // to={"./GemShapeCapture"}
+              to={"./GemIdentification"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
               <div className="team-member hover-effect image-card">

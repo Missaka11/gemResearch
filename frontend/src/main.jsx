@@ -8,6 +8,7 @@ import GemShapeCapture from "./pages/GemShapeCapture.jsx";
 import LiveReviewGemShape from "./pages/LiveReviewGemShape.jsx";
 import GemShapePreview from "./pages/GemShapePreview.jsx";
 import GemShapeResult from "./pages/GemShapeResult.jsx";
+import GemIdentification from "./pages/GemIdentification.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route index element={<App />} />
         <Route path="/" element={<App />} />
+        <Route path="/GemIdentification" element={<GemIdentification />} />
         <Route path="/ImageCaptureRS" element={<ImageCaptureRS />} />
         <Route path="/GemShapeCapture" element={<GemShapeCapture />} />
         <Route
