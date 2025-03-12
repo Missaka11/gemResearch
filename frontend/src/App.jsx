@@ -19,7 +19,7 @@ function App() {
             data-aos-delay="300"
           >
             <NavLink
-              to={"./GemShapeCapture"}
+              // to={"./GemShapeCapture"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
               <div className="team-member hover-effect">
@@ -74,8 +74,7 @@ function App() {
             data-aos-delay="300"
           >
             <NavLink
-              // to={"./ImageCaptureRS"}
-
+              to={"./GemShapeCapture"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
               <div className="team-member hover-effect">
