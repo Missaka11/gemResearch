@@ -18,7 +18,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 40px; /* Gap between 3D model and thumbnails */
+  gap: 40px;
+  /* Gap between 3D model and thumbnails */
   flex-wrap: wrap;
   max-width: 1500px;
   margin: 0 auto;
@@ -26,7 +27,8 @@
 
 /* Left section - 3D model container */
 .model-container {
-  width: 60%; /* Adjust the size of the 3D model container */
+  width: 60%;
+  /* Adjust the size of the 3D model container */
   min-width: 600px;
   text-align: center;
 }
@@ -47,9 +49,11 @@
 /* Right section - Thumbnails container */
 .thumbnails-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two-column grid */
+  grid-template-columns: repeat(2, 1fr);
+  /* Two-column grid */
   gap: 20px;
-  width: 35%; /* Adjust the width of the thumbnails section */
+  width: 35%;
+  /* Adjust the width of the thumbnails section */
   min-width: 300px;
   height: 600px;
 }
@@ -61,7 +65,8 @@
 
 .thumbnail:hover {
   transform: scale(1.05);
-  border-color: rgb(0, 255, 34); /* Change border color on hover */
+  border-color: rgb(0, 255, 34);
+  /* Change border color on hover */
 }
 
 .thumbnail img {
@@ -77,12 +82,15 @@
     flex-direction: column;
     align-items: center;
   }
+
   .model-container {
     width: 100%;
     min-width: 100%;
   }
+
   .thumbnails-container {
     width: 100%;
-    grid-template-columns: repeat(1, 1fr); /* Single column layout on smaller screens */
+    grid-template-columns: repeat(1, 1fr);
+    /* Single column layout on smaller screens */
   }
 }

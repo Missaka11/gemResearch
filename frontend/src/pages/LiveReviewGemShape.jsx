@@ -78,13 +78,20 @@ const LiveReviewGemShape = () => {
         </select>
 
         <div className="webcam-container">
-        {/* Display video stream */}
-        <video ref={videoRef} autoPlay width="100%" height="auto"></video>
-        <canvas ref={canvasRef} width="640" height="480" style={{ display: 'none' }}></canvas>
-      </div>
+          {/* Display video stream */}
+          <video ref={videoRef} autoPlay width="100%" height="auto"></video>
+          <canvas
+            ref={canvasRef}
+            width="640"
+            height="480"
+            style={{ display: "none" }}
+          ></canvas>
+        </div>
 
-      <button className="styled-button" onClick={handleCaptureClick}>Capture Image</button>
-    </div>
+        <button className="styled-button" onClick={handleCaptureClick}>
+          Capture Image
+        </button>
+      </div>
     </>
   );
 };

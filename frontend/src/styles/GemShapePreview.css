@@ -1,4 +1,5 @@
-.preview-container, .result-container {
+.preview-container,
+.result-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,28 +17,31 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
-  
+
 .title {
   font-size: 2rem;
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeInTitle 1s forwards;
-  animation-delay: 0.5s; /* Adds a slight delay to title appearance */
+  animation-delay: 0.5s;
+  /* Adds a slight delay to title appearance */
 }
 
 @keyframes fadeInTitle {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
-  
+
 .captured-image {
   max-width: 100%;
   height: auto;
@@ -47,7 +51,8 @@
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeInImage 1s forwards;
-  animation-delay: 1.5s; /* Delay for smooth sequence of images and text */
+  animation-delay: 1.5s;
+  /* Delay for smooth sequence of images and text */
 }
 
 /* Fade-in Animation for Image */
@@ -55,116 +60,129 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
-  
-  .upload-button, .upload-button-2{
-    padding: 10px 30px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-right: 10px;
-    margin-top: 20px;
-  }
 
-  .upload-button-2 {
-    background-color: #dd2923;
-  }
-  
-  .upload-button:disabled {
-    background-color: #ccc;
-  }
-  
-  .error-message {
-    color: red;
-    font-weight: bold;
-  }
-  
-  .prediction-container {
-    margin-top: 20px;
-  }
-  
-  .result {
-    text-align: center;
-    height: 20vh;
+.upload-button,
+.upload-button-2 {
+  padding: 10px 30px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.upload-button-2 {
+  background-color: #dd2923;
+}
+
+.upload-button:disabled {
+  background-color: #ccc;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.prediction-container {
+  margin-top: 20px;
+}
+
+.result {
+  text-align: center;
+  height: 20vh;
+  opacity: 0;
+  animation: fadeInResult 1s forwards;
+  animation-delay: 1s;
+  /* Adds delay to make sure the title fades in first */
+}
+
+/* Fade-in Animation for Result */
+@keyframes fadeInResult {
+  from {
     opacity: 0;
-    animation: fadeInResult 1s forwards;
-    animation-delay: 1s; /* Adds delay to make sure the title fades in first */
-  }
-  
-  /* Fade-in Animation for Result */
-  @keyframes fadeInResult {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
   }
 
-  .topic-gs {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #333;
+  to {
+    opacity: 1;
+  }
+}
+
+.topic-gs {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.scroll-down-btn {
+  font-size: 1.5rem;
+  background-color: #1a0beb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 700;
+  border-radius: 35px;
+  margin-top: 20px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInButton 1s forwards, pulse 2s infinite;
+  animation-delay: 1s;
+  /* Delays the start of both animations */
+  transition: background-color 0.3s ease;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    /* Start at normal size */
   }
 
-  .scroll-down-btn {
-    font-size: 1.5rem;
-    background-color: #1a0beb;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-weight: 700;
-    border-radius: 35px;
-    margin-top: 20px;
-    cursor: pointer;
+  50% {
+    transform: scale(1.1);
+    /* Scale up to 110% */
+  }
+
+  100% {
+    transform: scale(1);
+    /* Return to original size */
+  }
+}
+
+/* Fade-in Animation for Button */
+@keyframes fadeInButton {
+  from {
     opacity: 0;
-    animation: fadeInButton 1s forwards, pulse 2s infinite;
-    animation-delay: 1s; /* Delays the start of both animations */
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Pulse Animation */
-  @keyframes pulse {
-    0% {
-      transform: scale(1); /* Start at normal size */
-    }
-    50% {
-      transform: scale(1.1); /* Scale up to 110% */
-    }
-    100% {
-      transform: scale(1); /* Return to original size */
-    }
-  }
-  
-  /* Fade-in Animation for Button */
-  @keyframes fadeInButton {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .scroll-down-btn:hover {
-    background-color: #45a049;
   }
 
-  .down-arrow {
-    font-size: 1.8rem; /* Make the arrow slightly bigger */
-    margin-left: 10px; /* Space between text and arrow */
+  to {
+    opacity: 1;
   }
-  
-  /* Hover effect for the button */
-  .scroll-down-btn:hover {
-    background-color: #45a049;
-  }
+}
+
+.scroll-down-btn:hover {
+  background-color: #45a049;
+}
+
+.down-arrow {
+  font-size: 1.8rem;
+  /* Make the arrow slightly bigger */
+  margin-left: 10px;
+  /* Space between text and arrow */
+}
+
+/* Hover effect for the button */
+.scroll-down-btn:hover {
+  background-color: #45a049;
+}
 
 /* Quote Section */
 .quote-section {
@@ -181,6 +199,7 @@
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -200,7 +219,7 @@
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
-  
+
 .synonyms-section {
   width: 100%;
   height: 93vh;
@@ -208,62 +227,70 @@
   background: radial-gradient(circle, #01013d, #efeff1);
   text-align: center;
 }
-  
-  .synonyms-section h1 {
-    font-size: 4em;
-    color: #fff;
-    margin-bottom: 40px;
-    padding-top: 40px;
-  }
-  
-  .cards-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px; /* Increased gap between cards */
-    padding: 30px;
-    margin: 0 auto;
-  }
-  
-  .synonym-card {
-    width: 22%; /* Control card width to ensure the cards fit on a row */
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
-    padding: 20px;
-    cursor: pointer;
-    overflow: hidden;
-    text-align: center;
+
+.synonyms-section h1 {
+  font-size: 4em;
+  color: #fff;
+  margin-bottom: 40px;
+  padding-top: 40px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* Increased gap between cards */
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.synonym-card {
+  width: 22%;
+  /* Control card width to ensure the cards fit on a row */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  /* Smooth transition for hover effect */
+  padding: 20px;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+}
+
+.synonym-card:hover {
+  transform: scale(1.05);
+  /* Slightly enlarge the card */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Larger box shadow on hover */
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
   }
 
-  .synonym-card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger box shadow on hover */
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeInCard {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .synonym-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-image {
-    width: 100%;
-    height: 400px; /* Fixed height for the image */
-    object-fit: cover; /* Makes sure the image covers the card area properly */
-    border-radius: 10px;
-  }
-  
- /* Card Title */
+}
+
+.synonym-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 400px;
+  /* Fixed height for the image */
+  object-fit: cover;
+  /* Makes sure the image covers the card area properly */
+  border-radius: 10px;
+}
+
+/* Card Title */
 .synonym-card h3 {
   font-size: 1.8rem;
   font-weight: 700;
@@ -298,14 +325,14 @@
 /* Additional styling to adjust card spacing and height */
 @media (max-width: 768px) {
   .synonym-card {
-    width: 48%; /* Adjust for smaller screens */
+    width: 48%;
+    /* Adjust for smaller screens */
   }
 }
 
 @media (max-width: 480px) {
   .synonym-card {
-    width: 100%; /* Cards will stack on top of each other on very small screens */
+    width: 100%;
+    /* Cards will stack on top of each other on very small screens */
   }
 }
-
-
