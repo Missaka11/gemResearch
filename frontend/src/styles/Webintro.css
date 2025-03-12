@@ -25,7 +25,8 @@
 .section {
   width: 100%;
   margin: 0;
-  background-color: rgb(192, 231, 231);
+  background-image: url('/src/assets/images/background-image.jpg'); 
+  background-size: cover;
   padding: 10px 0;
 }
 
