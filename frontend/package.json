@@ -18,10 +18,12 @@
     "cors": "^2.8.5",
     "esbuild": "^0.25.0",
     "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
     "react-easy-crop": "^5.2.0",
     "react-router-dom": "^7.2.0",
-    "react-webcam": "^7.2.0"
+    "react-webcam": "^7.2.0",
+    "three": "^0.174.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
