@@ -4,8 +4,12 @@ import "../styles/imageSlider.css";
 
 const ImageSlider = () => {
   return (
-    <Carousel data-bs-theme="dark" className="image-slider mx-auto">
-      <Carousel.Item>
+    <Carousel
+      data-bs-theme="dark"
+      className="image-slider mx-auto"
+      pause={false}
+    >
+      <Carousel.Item interval={5000}>
         <img
           className="d-block w-100"
           src="https://images.unsplash.com/photo-1585383234137-2367d3c5302d?q=70&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -16,7 +20,7 @@ const ImageSlider = () => {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={5000}>
         <img
           className="d-block w-100"
           src="https://images.unsplash.com/photo-1551947391-249dcb8ed976?q=70&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -27,7 +31,7 @@ const ImageSlider = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
+      <Carousel.Item interval={5000}>
         <img
           className="d-block w-100"
           src="https://images.unsplash.com/photo-1605821771565-35e0d046a2fb?q=70&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
