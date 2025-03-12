@@ -1,0 +1,8 @@
+.image-slider {
+  width: 90%;
+}
+
+.image-slider img {
+  height: 35rem;
+  object-fit: cover;
+}

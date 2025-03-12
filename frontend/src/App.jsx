@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FooterComp } from "./components/FooterComp";
 import gemPhotography from "./assets/images/gemPhotography2.jpg";
 import whiteboxGem from "./assets/images/whiteboxGem.jpg";
+import ImageSlider from "./components/ImageSlider";
 
 function App() {
   return (
@@ -124,6 +125,7 @@ function App() {
           </div>
         </div>
       </div>
+      <ImageSlider />
       <FooterComp />
     </>
   );
