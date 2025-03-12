@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    background-color:  rgb(192, 231, 231);
+    background-image: url('/src/assets/images/background-image.jpg'); 
+    background-size: cover;
     height: 92vh;
   }
   

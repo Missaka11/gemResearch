@@ -1,0 +1,88 @@
+/* Overall container for the 3D view */
+.three-d-view-container {
+  text-align: center;
+  padding: 50px;
+  height: 93vh;
+  background: radial-gradient(circle, #010122, #9d9d9e);
+}
+
+/* Title styling */
+.synonymtopic {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #fff !important;
+}
+
+/* Flex container for the 3D model view and thumbnails */
+.three-d-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px; /* Gap between 3D model and thumbnails */
+  flex-wrap: wrap;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Left section - 3D model container */
+.model-container {
+  width: 60%; /* Adjust the size of the 3D model container */
+  min-width: 600px;
+  text-align: center;
+}
+
+/* Description below the 3D model */
+.model-description {
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  padding: 10px;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+/* Right section - Thumbnails container */
+.thumbnails-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two-column grid */
+  gap: 20px;
+  width: 35%; /* Adjust the width of the thumbnails section */
+  min-width: 300px;
+  height: 600px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  border-color: rgb(0, 255, 34); /* Change border color on hover */
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .three-d-view {
+    flex-direction: column;
+    align-items: center;
+  }
+  .model-container {
+    width: 100%;
+    min-width: 100%;
+  }
+  .thumbnails-container {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr); /* Single column layout on smaller screens */
+  }
+}
