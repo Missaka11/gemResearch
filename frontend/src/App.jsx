@@ -18,25 +18,25 @@ function App() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            {/* <NavLink
-              to={"./Upload"}
+            <NavLink
+              to={"./GemShapeCapture"}
               style={{ color: "#212529", textDecorationLine: "none" }}
-            > */}
-            <div className="team-member hover-effect">
-              <div className="member-img">
-                <img src={gemPhotography} className="img-fluid" alt="" />
+            >
+              <div className="team-member hover-effect">
+                <div className="member-img">
+                  <img src={gemPhotography} className="img-fluid" alt="" />
+                </div>
+                <div className="member-info">
+                  <h4 spellCheck="false">Gem Identification</h4>
+                  <span spellCheck="false">Master Chef</span>
+                  <p spellCheck="false">
+                    Velit aut quia fugit et et. Dolorum ea voluptate vel tempore
+                    tenetur ipsa quae aut. Ipsum exercitationem iure minima enim
+                    corporis et voluptate.
+                  </p>
+                </div>
               </div>
-              <div className="member-info">
-                <h4 spellCheck="false">Gem Identification</h4>
-                <span spellCheck="false">Master Chef</span>
-                <p spellCheck="false">
-                  Velit aut quia fugit et et. Dolorum ea voluptate vel tempore
-                  tenetur ipsa quae aut. Ipsum exercitationem iure minima enim
-                  corporis et voluptate.
-                </p>
-              </div>
-            </div>
-            {/* </NavLink> */}
+            </NavLink>
           </div>
 
           <div
