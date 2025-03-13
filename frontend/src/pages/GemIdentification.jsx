@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
+const GemIdentification = ({ setPath = ({}) => {} }) => {
   return (
     <div
       className="w-100 p-0 m-0"
@@ -35,10 +35,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
             </div>
 
             <button
-              onClick={() => {
-                if (auth) setPath({ path: "preview" });
-                else setPath({ path: "home" });
-              }}
+              onClick={() => { setPath({ path: "preview" });}}
               style={{
                 width: "fit-content",
                 backgroundColor: "#1C60C7",
@@ -48,7 +45,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
               }}
               className="btn btn-info rounded rounded-5 mt-5 py-2 px-5 text-white"
             >
-              {auth ? "Capture the Image" : "Sign in for free"}
+              { "Capture the Image"}
               <i className="fa fa-arrow-right ms-3 text-dark bg-white rounded rounded-circle p-1"></i>
             </button>
           </div>
@@ -63,7 +60,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
             }}
           >
             <img
-              src={auth ? "img//human-2.png" : "img//human-1.png"}
+              src={"img/human-1.png"}
               style={{
                 maxWidth: "100%",
                 maxHeight: "100%",
@@ -74,7 +71,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
           </div>
         </div>
       </div>
-      {auth && <div className="py-5"></div>}
+      {<div className="py-5"></div>}
     </div>
   );
 };
