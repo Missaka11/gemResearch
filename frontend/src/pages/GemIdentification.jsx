@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Background from "../assets/images/background-image.jpg";
 
 const GemIdentification = ({ setPath = ({}) => {} }) => {
   return (
@@ -8,7 +9,7 @@ const GemIdentification = ({ setPath = ({}) => {} }) => {
     >
       <img
         style={{ width: "100%", height: "auto" }}
-        src="img//bg-1.png"
+        src={Background}
         alt="Background 1"
       />
       <div
@@ -35,7 +36,9 @@ const GemIdentification = ({ setPath = ({}) => {} }) => {
             </div>
 
             <button
-              onClick={() => { setPath({ path: "preview" });}}
+              onClick={() => {
+                setPath({ path: "GemIdentificationPreview" });
+              }}
               style={{
                 width: "fit-content",
                 backgroundColor: "#1C60C7",
@@ -45,7 +48,7 @@ const GemIdentification = ({ setPath = ({}) => {} }) => {
               }}
               className="btn btn-info rounded rounded-5 mt-5 py-2 px-5 text-white"
             >
-              { "Capture the Image"}
+              {"Capture the Image"}
               <i className="fa fa-arrow-right ms-3 text-dark bg-white rounded rounded-circle p-1"></i>
             </button>
           </div>

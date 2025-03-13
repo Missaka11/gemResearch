@@ -10,9 +10,8 @@ import GemShapePreview from "./pages/GemShapePreview.jsx";
 import GemShapeResult from "./pages/GemShapeResult.jsx";
 
 import GemIdentification from "./pages/GemIdentification.jsx";
-
+import GemIdentificationPreview from "./pages/GemIdentificationPreview.jsx";
 import ThreeDModelView from "./pages/GemShape3DModel.jsx";
-
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,6 +20,10 @@ createRoot(document.getElementById("root")).render(
         <Route index element={<App />} />
         <Route path="/" element={<App />} />
         <Route path="/GemIdentification" element={<GemIdentification />} />
+        <Route
+          path="/GemIdentificationPreview"
+          element={<GemIdentificationPreview />}
+        />
         <Route path="/ImageCaptureRS" element={<ImageCaptureRS />} />
 
         <Route path="/GemShapeCapture" element={<GemShapeCapture />} />
@@ -31,8 +34,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/GemShapePreview" element={<GemShapePreview />} />
         <Route path="/GemShapeResult" element={<GemShapeResult />} />
 
-        <Route path="/ThreeDModelView" element={<ThreeDModelView />}/>
-
+        <Route path="/ThreeDModelView" element={<ThreeDModelView />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
