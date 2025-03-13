@@ -2,7 +2,7 @@
 import React from "react";
 import "../styles/Webintro.css";
 import DollermanImage from '../assets/images/Dollerman.png';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Webintro = () => {
   return (
@@ -22,9 +22,9 @@ const Webintro = () => {
               services.
             </p>
             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
-              <Link href="#book-Link-table" className="btn-get-started">
+              <NavLink to={"/InstructionsPage"} className="btn-get-started">
                 Get service now
-              </Link>
+              </NavLink>
             </div>
           </div>
           <div
