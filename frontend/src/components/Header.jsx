@@ -52,13 +52,14 @@ export const Header = () => {
                   </a>
                 </li>
                 <li className="nav-item px-4">
-                  <NavLink
+                  <a
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
-                    href="#"
+                    href="#contact-us-section"
+                    style={{ color: "#212529" }}
                   >
                     Contact
-                  </NavLink>
+                  </a>
                 </li>
                 <li className="nav-item px-4">
                   <NavLink

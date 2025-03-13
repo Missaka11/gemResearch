@@ -8,6 +8,7 @@ import gemPhotography from "./assets/images/gemPhotography2.jpg";
 import whiteboxGem from "./assets/images/whiteboxGem.jpg";
 import ImageSlider from "./components/ImageSlider";
 import AboutUsImage from "./assets/images/about-us.jpg";
+import ContactUsImage from "./assets/images/call center.jpg"
 
 function App() {
   const [showMore, setShowMore] = useState(false);
@@ -223,6 +224,71 @@ function App() {
               and design of every piece of jewelry we offer.
             </p>
           </div>
+        </div>
+      </div>
+
+       {/* Contact Us Section */}
+       <div id="contact-us-section" className="contact-us-container" style={{ position: "relative", height: "92vh" }}>
+        <div className="row contact-us-row">
+          {/* Left Column: Topic & Description */}
+          <div className="col-lg-7 contact-left-column">
+            <h2>Contact Us <br/> About Gemora Software</h2>
+            <p>
+              If you have any questions or inquiries, feel free to reach out.
+              We're here to assist you with <br/>  all things Gemora Software and more!
+            </p>
+          </div>
+
+          {/* Right Column: Image */}
+          <div className="col-lg-5 contact-right-column">
+            <img
+              src={ContactUsImage}
+              alt="Contact Us"
+              className="img-fluid"
+              style={{ height: "70vh" }}
+            />
+          </div>
+        </div>
+
+        {/* Contact Actions Box - Floating in front of the row */}
+        <div className="contact-actions-box">
+        <div className="row contact-actions">
+  {/* Call Us Directly Box */}
+  <div className="col-md-4">
+    <div className="contact-box">
+      {/* Phone Icon above the title */}
+      <div className="icon-box">
+        <i className="fas fa-phone-alt"></i>
+      </div>
+      <h4>Call Us Directly</h4>
+      <p>Contact us for immediate assistance. <br/> +94 11 754 4801</p>
+    </div>
+  </div>
+
+  {/* Chat with Our Sales Team Box */}
+  <div className="col-md-4">
+    <div className="contact-box">
+      {/* Message Icon above the title */}
+      <div className="icon-box">
+        <i className="fas fa-comment-alt"></i>
+      </div>
+      <h4>Chat with Our Team</h4>
+      <p>Speak to a representative for personalized help.</p>
+    </div>
+  </div>
+
+  {/* Get a Product Demo Box */}
+  <div className="col-md-4">
+    <div className="contact-box">
+      {/* Calendar Icon above the title */}
+      <div className="icon-box">
+        <i className="fas fa-map-marker-alt"></i>
+      </div>
+      <h4>Our Location</h4>
+      <p>SLIIT Malabe Campus, New Kandy Road, Malabe.</p>
+    </div>
+  </div>
+</div>
         </div>
       </div>
       <FooterComp />

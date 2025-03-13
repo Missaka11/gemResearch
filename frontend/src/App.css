@@ -186,3 +186,100 @@
     opacity: 1;
   }
 }
+
+
+/* Contact Us Section */
+.contact-us-container {
+  background-color: #f8f9fa;
+  width: 100%;
+  padding: 100px 0 50px 0;
+  position: relative; 
+}
+
+.contact-left-column {
+   padding: 6% 4%;
+}
+
+.contact-left-column h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #707174;
+  margin-bottom: 40px;
+}
+
+.contact-left-column p {
+  font-size: 1.1rem;
+  color: #131212;
+}
+
+.contact-right-column {
+  padding: 0;
+  margin: 0;
+}
+
+.contact-us-row {
+  width: 100%;
+}
+
+.contact-right-column img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Contact Actions Box */
+.contact-actions-box {
+  background-color: #dfdfdf;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 5%; /* Position the box at the bottom of the container */
+  left: 15%;
+  width: auto;
+  z-index: 10; /* Ensure it appears above the row content */
+}
+
+.contact-box {
+  background-color: #f4f5f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-5px);
+}
+
+.contact-box h4 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.contact-box p {
+  font-size: 1rem;
+  color: #f3591c;
+}
+
+.icon-box {
+  font-size: 2rem;  /* Adjust the size of the icon */
+  color: #f3591c;   /* Change the color of the icon (you can choose any color) */
+  margin-bottom: 15px; /* Space between the icon and the heading */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact-left-column, .contact-right-column {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .contact-box {
+    margin-bottom: 30px;
+  }
+}
