@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Background from "../assets/images/background-image.jpg";
 
 const GemIdentification = ({ setPath = ({}) => {} }) => {
+
+  const navigate = useNavigate(); 
+
   return (
     <div
       className="w-100 p-0 m-0"
@@ -37,7 +41,7 @@ const GemIdentification = ({ setPath = ({}) => {} }) => {
 
             <button
               onClick={() => {
-                setPath({ path: "GemIdentificationPreview" });
+                navigate("/GemIdentificationPreview");
               }}
               style={{
                 width: "fit-content",
