@@ -46,7 +46,7 @@ function App() {
             data-aos-delay="300"
           >
             <NavLink
-              tto={"./GemAuthenticate"}
+              to={"./GemAuthenticate"}
               style={{ color: "#212529", textDecorationLine: "none" }}
             >
               <div className="team-member hover-effect image-card">
