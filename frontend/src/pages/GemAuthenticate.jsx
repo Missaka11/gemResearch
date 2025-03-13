@@ -21,16 +21,14 @@ const GemAuthenticate = () => {
                 Gem Real or Synthetic
               </h1>
               <p data-aos="fade-up" data-aos-delay="100">
-                Our cutting-edge gem shape classifier offers an easy and
-                accurate way to identify the unique shape of your gemstones.
-                Simply upload an image, and let our advanced technology analyze
-                its features to determine whether it's{" "}
-                <b>
-                  Round , Oval , Pear , Heart , Square , Triangle , Marquise
-                </b>{" "}
-                or any other popular gem shapes. Start your gem classification
-                journey today and unlock the secrets of your precious stones
-                with precision.
+                Discover the authenticity of your gemstones with our advanced
+                gem identification model. Simply upload an image, and our
+                cutting-edge technology will analyze its features to determine
+                if your gem is natural or synthetic. Whether it's a Round, Oval,
+                Pear, Heart, Square, Triangle, Marquise, or any other popular
+                shape, our tool provides accurate and reliable results. Start
+                your gemstone verification journey today and gain confidence in
+                the value of your precious stones.
               </p>
               <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
                 <NavLink to={"./ImageCaptureRS"} className="btn-get-started">
