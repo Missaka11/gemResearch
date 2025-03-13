@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import Webintro from "./components/Webintro";
 import { Header } from "./components/Header";
 import { Link, NavLink } from "react-router-dom";
@@ -6,8 +7,15 @@ import { FooterComp } from "./components/FooterComp";
 import gemPhotography from "./assets/images/gemPhotography2.jpg";
 import whiteboxGem from "./assets/images/whiteboxGem.jpg";
 import ImageSlider from "./components/ImageSlider";
+import AboutUsImage from "./assets/images/about-us.jpg";
 
 function App() {
+  const [showMore, setShowMore] = useState(false);
+
+  const handleReadMore = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <>
       <Header />
@@ -127,6 +135,96 @@ function App() {
         </div>
       </div>
       <ImageSlider />
+
+      {/* About Us Section */}
+      <div
+        id="about-us-section"
+        className="about-us-section"
+        style={{ height: "100vh" }}
+      >
+        <h2 className="about-us-heading about-header-nav-link">About Us</h2>
+
+        <div className="row about-row">
+          {/* Left side: Image */}
+          <div className="col-lg-6 about-image">
+            <img
+              src={AboutUsImage}
+              alt="About Us"
+              className="img-fluid"
+              style={{ width: "90%", height: "500px" }}
+            />
+          </div>
+
+          {/* Right side: Content */}
+          <div className="col-lg-6 about-content">
+            <h2 className="about-us-sub-heading">Who We Are</h2>
+            <p>
+              We are a team of passionate individuals focused on transforming
+              the jewelry industry by providing interactive and realistic 3D
+              model experiences. Our goal is to offer cutting-edge technology to
+              enhance your jewelry shopping experience.
+            </p>
+
+            {/* Hidden Content (Initially hidden, revealed on click) */}
+            <div className={`more-details ${showMore ? "show" : ""}`}>
+              <p>
+                Our designs are crafted by skilled artisans who bring unique
+                creativity into every piece. We focus on high-quality materials
+                and provide you with a virtual experience to view each piece
+                from every angle, ensuring you make the right choice.
+              </p>
+            </div>
+
+            {/* Read More Button */}
+            <button
+              className="btn btn-primary read-more-btn"
+              onClick={handleReadMore}
+            >
+              {showMore ? "Hide Details <<" : "Read More >>"}
+            </button>
+
+            {/* Stats Grid */}
+            <div className="about-stats">
+              <div className="stats-item">
+                <h5>4.9 ⭐</h5>
+                <p>Ratings</p>
+              </div>
+              <div className="stats-item">
+                <h5> 100k</h5>
+                <p>Downloads</p>
+              </div>
+              <div className="stats-item">
+                <h5>1+ Yrs</h5>
+                <p>Experience</p>
+              </div>
+              <div className="stats-item">
+                <h5> 830+</h5>
+                <p>Reviews</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row vision-row">
+          {/* Left side: Image */}
+          <div className="col-lg-6 about-image">
+            <h2>
+              Organizational <br />
+              Vision & Mission
+            </h2>
+          </div>
+
+          {/* Right side: Content */}
+          <div className="col-lg-6 about-content-mission">
+            <p>
+              Our vision is to be the leading innovator in the jewelry industry,
+              and our mission is to provide the highest quality 3D models and
+              real-time experiences that allow users to explore the full beauty
+              and design of every piece of jewelry we offer.
+            </p>
+          </div>
+        </div>
+      </div>
       <FooterComp />
     </>
   );

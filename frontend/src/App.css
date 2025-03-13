@@ -39,3 +39,150 @@
   object-fit: cover;
   object-position: center;
 }
+
+.about-us-section {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #fff;
+  margin-top: 100px;
+  padding: 20px 0;
+}
+
+.about-us-heading {
+  font-size: 3.5rem;
+  padding-top: 100px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.about-image {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-content {
+  width: 48%;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.about-content-mission {
+  width: 48%;
+  text-align: center;
+  padding: 0 10%;
+}
+
+.about-us-sub-heading, .about-content h4 {
+  text-align: left;
+  margin-top: 20px;
+  color: #333;
+}
+
+.about-content p {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.5;
+  margin-top: 10px;
+  color: #444;
+}
+
+.about-header-nav-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.about-header-nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #333;
+  transition: width 0.3s;
+}
+
+.about-header-nav-link:hover::after {
+  width: 100%;
+  /* transition: width 0.3s; */
+}
+
+.about-row {
+  padding: 0 100px;
+  width: 100%;
+}
+
+.vision-row {
+  background: radial-gradient(circle, #f4f5f5, #b5f5fa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40%;
+}
+
+.read-more-btn {
+  margin-top: 10px;
+  display: flex;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0px;
+  background: radial-gradient(circle, #2e0ee2, #4c5fe9);
+  border: none;
+}
+
+.read-more-btn:hover{
+  color: #2e0ee2;
+  background: radial-gradient(circle, #e7e7e9, #b2b9eb);
+  animation: fadeIn 1s ease-out;
+}
+
+.more-details {
+  display: none;
+  margin-top: 15px;
+  text-align: left;
+  color: #444;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.more-details.show {
+  display: block;
+}
+
+.about-stats {
+  padding: 20px 10px 10px 45% ;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding-top: 4%;
+}
+
+.stats-item {
+  text-align: left;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stats-item h5 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.stats-item p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  color: #8d8181;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

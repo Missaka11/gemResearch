@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Webintro = () => {
   return (
-    <section
+    <section id="home"
       className="hero section"
       data-builder="section"
       data-colorpreset="cp-light-background"
