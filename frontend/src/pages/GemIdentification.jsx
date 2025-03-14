@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Background from "../assets/images/background-image.jpg";
+import humanImage from "../assets/images/human-2.png";
 
 const GemIdentification = ({ setPath = ({}) => {} }) => {
-
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
     <div
@@ -67,7 +67,7 @@ const GemIdentification = ({ setPath = ({}) => {} }) => {
             }}
           >
             <img
-              src={"img/human-1.png"}
+              src={humanImage}
               style={{
                 maxWidth: "100%",
                 maxHeight: "100%",
