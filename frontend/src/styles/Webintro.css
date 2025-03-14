@@ -2,10 +2,10 @@
 .hero-img img {
   animation: floatAnimation 4s ease-in-out infinite;
   transition: transform 0.3s ease-in-out;
+  height: 700px !important;
 }
 
 .animated {
-  height: 800px !important;
   width: 800px !important;
 }
 
