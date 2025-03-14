@@ -12,23 +12,31 @@ const ImageSlider = () => {
       <Carousel.Item interval={5000}>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1585383234137-2367d3c5302d?q=70&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1613843351058-1dd06fda7c02?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <div className="bg-dark bg-gradient bg-opacity-75 p-3 rounded-3">
+            <h5 className="text-light">First slide label</h5>
+            <span className="text-light">
+              Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </span>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={5000}>
         <img
           className="d-block w-100"
-          src="https://images.unsplash.com/photo-1551947391-249dcb8ed976?q=70&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1626784214536-d859187e0bd0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div className="bg-dark bg-gradient bg-opacity-75 p-3 rounded-3">
+            <h5 className="text-light">Second slide label</h5>
+            <span className="text-light">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </span>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={5000}>
@@ -38,10 +46,12 @@ const ImageSlider = () => {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <div className="bg-dark bg-gradient bg-opacity-75 p-3 rounded-3">
+            <h5 className="text-light">Third slide label</h5>
+            <span className="text-light">
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </span>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
