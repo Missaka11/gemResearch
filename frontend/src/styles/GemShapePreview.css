@@ -6,7 +6,7 @@
   text-align: center;
   background-image: url('/src/assets/images/background-image.jpg');
   background-size: cover;
-  height: 92vh;
+  height: 91vh;
   padding: 20px;
   overflow: hidden;
   opacity: 0;
@@ -335,4 +335,60 @@
     width: 100%;
     /* Cards will stack on top of each other on very small screens */
   }
+}
+
+
+@media (max-width: 1440px) {
+
+  .result-container {
+    padding-top: 0;
+  }
+
+.result-container h1 {
+  margin-top: 0;
+  font-size: 1.7rem;
+}
+
+.captured-image {
+  height: 400px;
+}
+
+.result h2 {
+  font-size: 1.7rem;
+}
+
+.quote-text {
+  font-size: 1rem;
+  padding: 20px 35px;
+}
+
+.scroll-down-btn {
+  font-size: 1rem;
+}
+
+.down-arrow {
+  font-size: 1rem;
+}
+
+.synonyms-section h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+}
+
+.synonyms-section p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.card-image {
+  height: 300px;
+}
+
+.synonyms-section {
+  width: 100%;
+  height: 95vh;
+  padding: 40px;
+  background: radial-gradient(circle, #01013d, #efeff1);
+  text-align: center;
+}
 }

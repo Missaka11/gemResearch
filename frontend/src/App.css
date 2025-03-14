@@ -92,6 +92,11 @@
   color: #444;
 }
 
+.about-us-image {
+  width: 90%;
+  height: 500px;
+}
+
 .about-header-nav-link {
   display: inline-block;
   text-decoration: none;
@@ -282,15 +287,113 @@
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
+
+  .about-us-heading {
+    font-size: 3rem;
+    padding-top: 70px;
+    margin-bottom: 35px;
+  }
+
+  .stats-item {
+    padding: 15px;
+  }
+
+  .about-content p {
+    font-size: 0.9rem;
+  }
+
+  .about-row {
+    padding: 0 50px;
+    width: 100%;
+  }
+
+  .read-more-btn {
+    font-size: 0.8rem;
+  }
+
+  .about-us-sub-heading,
+.about-content h4 {
+  font-size: 1.5rem;
+}
+
+  .about-content {
+    width: 48%;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .about-us-section {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 100px;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .about-us-image {
+    width: 100%;
+    height: 350px;
+  }
+
+  .about-content-mission {
+    width: 48%;
+    text-align: center;
+    padding: 0 10%;
+  }
+
+  .about-image h2{
+    font-size: 1.5rem;
+  }
+
+  .about-content-mission p{
+    font-size: 0.9rem;
+  }
+
+  .contact-left-column h2 {
+    font-size: 3rem;
+  }
+
+  .contact-left-column p {
+    font-size: 0.9rem;
+  }
 
   .contact-left-column,
   .contact-right-column {
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 20px;
   }
 
   .contact-box {
-    margin-bottom: 30px;
+    padding: 10px;
+  }
+
+  .contact-actions-box {
+    background-color: #dfdfdf;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 5%;
+    /* Position the box at the bottom of the container */
+    left: 5%;
+    width: auto;
+    z-index: 10;
+    /* Ensure it appears above the row content */
+  }
+
+  .contact-box h4 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-box p {
+    font-size: 0.9rem;
+  }
+
+  .icon-box {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
   }
 }

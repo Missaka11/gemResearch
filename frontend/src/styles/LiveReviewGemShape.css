@@ -67,3 +67,15 @@ video {
     border: 2px solid #ddd;
     border-radius: 5px;
   } */
+
+  @media (max-width: 1440px) {
+
+    .home-container {
+      height: 91vh;
+    }
+
+    .webcam-container {
+      max-width: 650px;
+    }
+    
+  }

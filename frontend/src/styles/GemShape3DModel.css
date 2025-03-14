@@ -46,6 +46,14 @@
   font-style: italic;
 }
 
+#threejs-container {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #efefef;
+  border: 1px solidrgba(109, 111, 112, 0.82)
+}
+
 /* Right section - Thumbnails container */
 .thumbnails-container {
   display: grid;
@@ -92,5 +100,33 @@
     width: 100%;
     grid-template-columns: repeat(1, 1fr);
     /* Single column layout on smaller screens */
+  }
+}
+
+@media (max-width: 1440px) {
+
+  .three-d-view-container {
+    padding: 20px 50px;
+    height: 91vh;
+  }
+
+  .model-container {
+    width: 40%;
+    /* Adjust the size of the 3D model container */
+    min-width: 400px;
+    text-align: center;
+  }
+
+  #threejs-container {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #efefef;
+    border: 1px solidrgba(109, 111, 112, 0.82)
+  }
+
+  .model-description {
+    font-size: 1rem;
+    width: 600px;
   }
 }

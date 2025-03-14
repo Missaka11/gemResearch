@@ -151,8 +151,7 @@ function App() {
             <img
               src={AboutUsImage}
               alt="About Us"
-              className="img-fluid"
-              style={{ width: "90%", height: "500px" }}
+              className="img-fluid about-us-image"
             />
           </div>
 

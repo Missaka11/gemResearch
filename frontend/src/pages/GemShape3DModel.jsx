@@ -164,13 +164,6 @@ const ThreeDModelView = () => {
           <div className="model-container">
             <div
               id="threejs-container"
-              style={{
-                width: "800px",
-                height: "600px",
-                margin: "0 auto",
-                backgroundColor: "#efefef",
-                border: "1px solidrgba(109, 111, 112, 0.82)",
-              }}
             ></div>
 
             {/* Description based on selected item */}
