@@ -4,7 +4,7 @@ import "../styles/FooterComp.css";
 export const FooterComp = () => {
   return (
     <div className="footer mt-auto">
-      <div className="footer-emailDiv">sample@gmail.com</div>
+      <div className="footer-emailDiv">gemoraworld@gmail.com</div>
       <div className="pt-3 pb-3 footer-contentDiv">
         <div className="footer-linksDiv row">
           <div className="col-md-3">
