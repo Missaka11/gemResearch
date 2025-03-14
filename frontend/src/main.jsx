@@ -9,9 +9,9 @@ import GemShapeCapture from "./pages/GemShapeCapture.jsx";
 import LiveReviewGemShape from "./pages/LiveReviewGemShape.jsx";
 import GemShapePreview from "./pages/GemShapePreview.jsx";
 import GemShapeResult from "./pages/GemShapeResult.jsx";
-
+import InstructionsPage from "./pages/Instructions.jsx"
 import GemIdentification from "./pages/GemIdentification.jsx";
-
+import GemIdentificationPreview from "./pages/GemIdentificationPreview.jsx";
 import ThreeDModelView from "./pages/GemShape3DModel.jsx";
 
 createRoot(document.getElementById("root")).render(
@@ -26,6 +26,12 @@ createRoot(document.getElementById("root")).render(
           path="/GemAuthenticate/ImageCaptureRS"
           element={<ImageCaptureRS />}
         />
+
+        <Route
+          path="/GemIdentificationPreview"
+          element={<GemIdentificationPreview />}
+        />
+        <Route path="/InstructionsPage" element={<InstructionsPage />}/>
 
         <Route path="/GemShapeCapture" element={<GemShapeCapture />} />
         <Route

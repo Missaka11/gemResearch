@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Background from "../assets/images/background-image.jpg";
+import humanImage from "../assets/images/human-2.png";
 
-const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
+const GemIdentification = ({ setPath = ({}) => {} }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="w-100 p-0 m-0"
@@ -8,7 +13,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
     >
       <img
         style={{ width: "100%", height: "auto" }}
-        src="img//bg-1.png"
+        src={Background}
         alt="Background 1"
       />
       <div
@@ -36,8 +41,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
 
             <button
               onClick={() => {
-                if (auth) setPath({ path: "preview" });
-                else setPath({ path: "home" });
+                navigate("/GemIdentificationPreview");
               }}
               style={{
                 width: "fit-content",
@@ -48,7 +52,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
               }}
               className="btn btn-info rounded rounded-5 mt-5 py-2 px-5 text-white"
             >
-              {auth ? "Capture the Image" : "Sign in for free"}
+              {"Capture the Image"}
               <i className="fa fa-arrow-right ms-3 text-dark bg-white rounded rounded-circle p-1"></i>
             </button>
           </div>
@@ -63,7 +67,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
             }}
           >
             <img
-              src={auth ? "img//human-2.png" : "img//human-1.png"}
+              src={humanImage}
               style={{
                 maxWidth: "100%",
                 maxHeight: "100%",
@@ -74,7 +78,7 @@ const GemIdentification = ({ auth = false, setPath = ({}) => {} }) => {
           </div>
         </div>
       </div>
-      {auth && <div className="py-5"></div>}
+      {<div className="py-5"></div>}
     </div>
   );
 };
