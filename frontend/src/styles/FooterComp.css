@@ -26,10 +26,17 @@
 .footer-linksDiv{
   margin-left: 9%;
 }
+
+.row {
+  width: 100%;
+  margin: 0;
+}
+
 .footer-items{
   background-color: #343a40;
   color: #f8f9fa;
   border: none;
   font-size: 0.8em;
   font-weight: 300;
+  text-align: center;
 }

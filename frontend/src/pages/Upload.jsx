@@ -68,3 +68,5 @@ export const Upload = ({ image = "", onType = () => {} }) => {
     </div>
   );
 };
+
+export default Upload;
