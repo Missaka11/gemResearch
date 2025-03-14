@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App.jsx";
+import GemAuthenticate from "./pages/GemAuthenticate.jsx";
 import ImageCaptureRS from "./pages/ImageCaptureRS.jsx";
 import GemShapeCapture from "./pages/GemShapeCapture.jsx";
 import LiveReviewGemShape from "./pages/LiveReviewGemShape.jsx";
@@ -20,12 +21,18 @@ createRoot(document.getElementById("root")).render(
         <Route index element={<App />} />
         <Route path="/" element={<App />} />
         <Route path="/GemIdentification" element={<GemIdentification />} />
+        <Route path="/GemAuthenticate" element={<GemAuthenticate />} />
+        <Route
+          path="/GemAuthenticate/ImageCaptureRS"
+          element={<ImageCaptureRS />}
+        />
+
         <Route
           path="/GemIdentificationPreview"
           element={<GemIdentificationPreview />}
         />
-        <Route path="/ImageCaptureRS" element={<ImageCaptureRS />} />
         <Route path="/InstructionsPage" element={<InstructionsPage />}/>
+
         <Route path="/GemShapeCapture" element={<GemShapeCapture />} />
         <Route
           path="/GemShapeCapture/LiveReviewGemShape"
