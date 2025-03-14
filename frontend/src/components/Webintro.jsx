@@ -23,7 +23,7 @@ const Webintro = () => {
             </p>
             <div className="d-flex" data-aos="fade-up" data-aos-delay="200">
               <NavLink to={"/InstructionsPage"} className="btn-get-started">
-                Get service now
+                Get Instructions
               </NavLink>
             </div>
           </div>

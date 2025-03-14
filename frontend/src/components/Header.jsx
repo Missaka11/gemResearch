@@ -67,19 +67,19 @@ export const Header = () => {
                     aria-current="page"
                     href="#"
                   >
-                    Service
+                    Instructions
                   </NavLink>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <button
+        {/* <button
           type="button"
           className="btn header-signin my-auto ms-5 fw-semibold"
         >
           Sign In
-        </button>
+        </button> */}
       </div>
     </header>
   );
