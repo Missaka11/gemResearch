@@ -116,21 +116,50 @@ function App() {
           >
             <div className="team-member hover-effect image-card">
               <div className="member-img">
-                <img
-                  src="https://builder.bootstrapmade.com/static/img/template/Yummy/chefs/chefs-3.jpg"
-                  className="img-fluid"
-                  alt=""
-                />
+               <img
+                 src="https://i.etsystatic.com/30288025/r/il/9b61e3/6445659420/il_1080xN.6445659420_9yoi.jpg"
+                 className="img-fluid"
+                 alt=""
+                 width="200" // Set your desired width here
+                 style={{ height: '225px' }} 
+               />
               </div>
+
+
               <div className="member-info">
-                <h4>William Anderson</h4>
-                <span>Cook</span>
-                <p>
-                  Vero omnis enim consequatur. Voluptas consectetur unde qui
-                  molestiae deserunt. Voluptates enim aut architecto porro
-                  aspernatur molestiae modi.
-                </p>
-              </div>
+  <h4>Wiliam Anderson</h4>
+  <span>Cook</span>
+  <p>
+    Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae
+    deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.
+  </p>
+  <a href="http://127.0.0.1:5000/" target="_blank" rel="noopener noreferrer">
+    <button className="go-button">GO</button>
+  </a>
+
+  <style>
+    {`
+      .go-button {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+      
+      .go-button:hover {
+        background-color: #0056b3;
+      }
+    `}
+  </style>
+</div>
+
+
+
+
             </div>
           </div>
         </div>
