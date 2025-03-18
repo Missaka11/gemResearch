@@ -31,7 +31,7 @@ const GemShapePreview = () => {
     try {
       // Send the image to backend for prediction
       const apiResponse = await axios.post(
-        "http://127.0.0.1:5000/predict-gem",
+        "http://127.0.0.1:5005/predict-gem",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

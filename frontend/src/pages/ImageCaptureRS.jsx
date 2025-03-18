@@ -51,7 +51,7 @@ const ImageCaptureRS = () => {
       formData.append("image", blob, "cropped-image.jpg");
 
       // Send the image to the Flask API
-      const apiResponse = await fetch("http://127.0.0.1:5001/predict", {
+      const apiResponse = await fetch("http://127.0.0.1:5002/predict", {
         method: "POST",
         body: formData,
       });
