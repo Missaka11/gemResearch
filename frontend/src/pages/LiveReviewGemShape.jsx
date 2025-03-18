@@ -1,259 +1,264 @@
-// import React, { useState, useEffect, useRef } from "react";
-// import { useNavigate } from "react-router-dom";
-// import "../styles/LiveReviewGemShape.css";
-// import { Header } from "../components/Header";
-
-// const LiveReviewGemShape = () => {
-//   const [cameras, setCameras] = useState([]);
-//   const [selectedCamera, setSelectedCamera] = useState(null);
-//   const videoRef = useRef(null);
-//   const canvasRef = useRef(null);
-//   const navigate = useNavigate();
-
-//   // Get the list of all available cameras
-//   useEffect(() => {
-//     const getCameras = async () => {
-//       const devices = await navigator.mediaDevices.enumerateDevices();
-//       const videoDevices = devices.filter(
-//         (device) => device.kind === "videoinput"
-//       );
-//       setCameras(videoDevices);
-
-//       // Automatically select the first camera (optional)
-//       if (videoDevices.length > 0) {
-//         setSelectedCamera(videoDevices[0].deviceId);
-//       }
-//     };
-
-//     getCameras();
-//   }, []);
-
-//   // Start the webcam with selected camera
-//   useEffect(() => {
-//     if (selectedCamera && videoRef.current) {
-//       const constraints = {
-//         video: { deviceId: { exact: selectedCamera } },
-//       };
-
-//       navigator.mediaDevices
-//         .getUserMedia(constraints)
-//         .then((stream) => {
-//           videoRef.current.srcObject = stream;
-//         })
-//         .catch((err) => {
-//           console.error("Error accessing webcam: ", err);
-//         });
-//     }
-//   }, [selectedCamera]);
-
-//   // Handle changing the selected camera
-//   const handleCameraChange = (event) => {
-//     setSelectedCamera(event.target.value);
-//   };
-
-//   // Capture the image from the video
-//   const handleCaptureClick = () => {
-//     const canvas = canvasRef.current;
-//     const context = canvas.getContext("2d");
-
-//     // Draw the current frame from the video onto the canvas
-//     context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
-//     // Get the image data URL and navigate to preview page
-//     const imageDataUrl = canvas.toDataURL("image/jpg");
-//     navigate("/GemShapePreview", { state: { imageDataUrl } });
-//   };
-
-//   return (
-//     <>
-//       <Header />
-//       <div className="home-container">
-//         <h2>Select Camera For Capture</h2>
-//         <select onChange={handleCameraChange}>
-//           {cameras.map((camera, index) => (
-//             <option key={index} value={camera.deviceId}>
-//               {camera.label || `Camera ${index + 1}`}
-//             </option>
-//           ))}
-//         </select>
-
-//         <div className="webcam-container">
-//           {/* Display video stream */}
-//           <video ref={videoRef} autoPlay width="100%" height="auto"></video>
-//           <canvas
-//             ref={canvasRef}
-//             width="640"
-//             height="480"
-//             style={{ display: "none" }}
-//           ></canvas>
-//         </div>
-
-//         <button className="styled-button" onClick={handleCaptureClick}>
-//           Capture Image
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default LiveReviewGemShape;
-
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Cropper from "react-easy-crop";
 import "../styles/LiveReviewGemShape.css";
 import { Header } from "../components/Header";
 
 const LiveReviewGemShape = () => {
-  const [cameras, setCameras] = useState([]);
-  const [selectedCamera, setSelectedCamera] = useState(null);
-  const videoRef = useRef(null);
-  const streamRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [previewSrc, setPreviewSrc] = useState(null);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [isCropping, setIsCropping] = useState(false);
+  const [croppedImage, setCroppedImage] = useState(null);
+
+  const fileInputRef = useRef(null);
   const canvasRef = useRef(null);
   const navigate = useNavigate();
 
-  // Function to stop all tracks of the stream
-  const stopMediaTracks = () => {
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => {
-        track.stop();
-      });
-      streamRef.current = null;
-    }
-  };
+  // Handle file selection
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(file);
+      setCroppedImage(null);
 
-  // Get the list of all available cameras
-  useEffect(() => {
-    const getCameras = async () => {
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      const videoDevices = devices.filter(
-        (device) => device.kind === "videoinput"
-      );
-      setCameras(videoDevices);
-
-      // Automatically select the first camera (optional)
-      if (videoDevices.length > 0) {
-        setSelectedCamera(videoDevices[0].deviceId);
-      }
-    };
-
-    getCameras();
-
-    // Cleanup function to ensure camera is turned off when component unmounts
-    return () => {
-      stopMediaTracks();
-    };
-  }, []);
-
-  // Start the webcam with selected camera
-  useEffect(() => {
-    if (selectedCamera && videoRef.current) {
-      // Stop any existing stream before starting a new one
-      stopMediaTracks();
-
-      const constraints = {
-        video: { deviceId: { exact: selectedCamera } },
+      // Create preview
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setPreviewSrc(e.target.result);
+        setIsCropping(true); // Start cropping mode when image is loaded
       };
+      reader.readAsDataURL(file);
+    }
+  };
 
-      navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then((stream) => {
-          // Store the stream reference so we can stop it later
-          streamRef.current = stream;
-          videoRef.current.srcObject = stream;
-        })
-        .catch((err) => {
-          console.error("Error accessing webcam: ", err);
-        });
+  // Handle crop complete
+  const onCropComplete = (croppedArea, croppedAreaPixelsData) => {
+    setCroppedAreaPixels(croppedAreaPixelsData);
+  };
+
+  // Create the cropped image
+  const createCroppedImage = async () => {
+    if (!croppedAreaPixels || !previewSrc) return;
+
+    const image = new Image();
+    image.src = previewSrc;
+
+    return new Promise((resolve) => {
+      image.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Set canvas size to the cropped area
+        canvas.width = croppedAreaPixels.width;
+        canvas.height = croppedAreaPixels.height;
+
+        // Draw the cropped image
+        ctx.drawImage(
+          image,
+          croppedAreaPixels.x,
+          croppedAreaPixels.y,
+          croppedAreaPixels.width,
+          croppedAreaPixels.height,
+          0,
+          0,
+          croppedAreaPixels.width,
+          croppedAreaPixels.height
+        );
+
+        resolve(canvas.toDataURL("image/jpeg"));
+      };
+    });
+  };
+
+  // Apply the crop
+  const handleApplyCrop = async () => {
+    const croppedImageUrl = await createCroppedImage();
+    setCroppedImage(croppedImageUrl);
+    setIsCropping(false);
+  };
+
+  // Cancel cropping
+  const handleCancelCrop = () => {
+    setIsCropping(false);
+    if (!croppedImage) {
+      // If no cropped image exists, reset everything
+      setPreviewSrc(null);
+      setSelectedImage(null);
+    }
+  };
+
+  // Reset and upload a new image
+  const handleReset = () => {
+    setSelectedImage(null);
+    setPreviewSrc(null);
+    setCroppedImage(null);
+    setIsCropping(false);
+    setCrop({ x: 0, y: 0 });
+    setZoom(1);
+    setCroppedAreaPixels(null);
+  };
+
+  // Trigger file input click
+  const handleBrowseClick = () => {
+    fileInputRef.current.click();
+  };
+
+  // Process the selected image
+  const handleProcessImage = () => {
+    if (!croppedImage && !previewSrc) {
+      alert("Please select an image first");
+      return;
     }
 
-    // Cleanup function to ensure camera is turned off when selected camera changes
-    return () => {
-      stopMediaTracks();
-    };
-  }, [selectedCamera]);
+    // Use the cropped image if available, otherwise use the original preview
+    const imageToProcess = croppedImage || previewSrc;
 
-  // Handle changing the selected camera
-  const handleCameraChange = (event) => {
-    setSelectedCamera(event.target.value);
+    // Navigate to preview page with the image data
+    navigate("/GemShapePreview", { state: { imageDataUrl: imageToProcess } });
   };
-
-  // Capture the image from the video
-  const handleCaptureClick = () => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-
-    // Draw the current frame from the video onto the canvas
-    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
-    // Get the image data URL
-    const imageDataUrl = canvas.toDataURL("image/jpg");
-
-    // Stop camera before navigating
-    stopMediaTracks();
-
-    // Navigate to preview page
-    navigate("/GemShapePreview", { state: { imageDataUrl } });
-  };
-
-  // Handle page visibility changes
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        // Stop the camera when the page is not visible
-        stopMediaTracks();
-      } else if (!streamRef.current && selectedCamera) {
-        // Restart the camera when the page becomes visible again
-        const constraints = {
-          video: { deviceId: { exact: selectedCamera } },
-        };
-
-        navigator.mediaDevices
-          .getUserMedia(constraints)
-          .then((stream) => {
-            streamRef.current = stream;
-            if (videoRef.current) {
-              videoRef.current.srcObject = stream;
-            }
-          })
-          .catch((err) => {
-            console.error("Error accessing webcam: ", err);
-          });
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, [selectedCamera]);
 
   return (
     <>
       <Header />
       <div className="home-container">
-        <h2>Select Camera For Capture</h2>
-        <select onChange={handleCameraChange} value={selectedCamera || ""}>
-          {cameras.map((camera, index) => (
-            <option key={index} value={camera.deviceId}>
-              {camera.label || `Camera ${index + 1}`}
-            </option>
-          ))}
-        </select>
+        <h2>Upload Image for Shape Analysis</h2>
 
-        <div className="webcam-container">
-          {/* Display video stream */}
-          <video ref={videoRef} autoPlay width="100%" height="auto"></video>
-          <canvas
-            ref={canvasRef}
-            width="640"
-            height="480"
+        <div className="file-upload-section">
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            accept="image/*"
             style={{ display: "none" }}
-          ></canvas>
+          />
+
+          <button
+            className="styled-button browse-button"
+            onClick={handleBrowseClick}
+          >
+            Browse Images
+          </button>
+
+          <div className="file-name">
+            {selectedImage ? selectedImage.name : "No file selected"}
+          </div>
         </div>
 
-        <button className="styled-button" onClick={handleCaptureClick}>
-          Capture Image
+        {isCropping && previewSrc ? (
+          <div className="crop-container">
+            <div
+              style={{ position: "relative", height: "400px", width: "100%" }}
+            >
+              <Cropper
+                image={previewSrc}
+                crop={crop}
+                zoom={zoom}
+                aspect={1}
+                onCropChange={setCrop}
+                onCropComplete={onCropComplete}
+                onZoomChange={setZoom}
+              />
+            </div>
+
+            <div className="crop-controls">
+              <div className="zoom-control">
+                <label>Zoom: {zoom.toFixed(1)}x</label>
+                <input
+                  type="range"
+                  min={1}
+                  max={3}
+                  step={0.1}
+                  value={zoom}
+                  onChange={(e) => setZoom(parseFloat(e.target.value))}
+                />
+              </div>
+
+              <div className="crop-buttons">
+                <button
+                  className="styled-button cancel-button"
+                  onClick={handleCancelCrop}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="styled-button apply-button"
+                  onClick={handleApplyCrop}
+                >
+                  Apply Crop
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="preview-container">
+            {croppedImage ? (
+              <div className="image-preview">
+                <h3>Cropped Preview</h3>
+                <img
+                  src={croppedImage}
+                  alt="Cropped Preview"
+                  className="preview-image"
+                  style={{ maxWidth: "100%", maxHeight: "400px" }}
+                />
+                <div className="image-actions">
+                  <button
+                    className="styled-button recrop-button"
+                    onClick={() => setIsCropping(true)}
+                  >
+                    Re-crop
+                  </button>
+                  <button
+                    className="styled-button reset-button"
+                    onClick={handleReset}
+                  >
+                    Upload New
+                  </button>
+                </div>
+              </div>
+            ) : previewSrc ? (
+              <div className="image-preview">
+                <h3>Preview</h3>
+                <img
+                  src={previewSrc}
+                  alt="Preview"
+                  className="preview-image"
+                  style={{ maxWidth: "100%", maxHeight: "400px" }}
+                />
+                <div className="image-actions">
+                  <button
+                    className="styled-button crop-button"
+                    onClick={() => setIsCropping(true)}
+                  >
+                    Crop
+                  </button>
+                  <button
+                    className="styled-button reset-button"
+                    onClick={handleReset}
+                  >
+                    Upload New
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="no-preview">
+                <p>Image preview will appear here</p>
+              </div>
+            )}
+
+            {/* Hidden canvas for image processing */}
+            <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+          </div>
+        )}
+
+        <button
+          className="styled-button process-button"
+          onClick={handleProcessImage}
+          disabled={!previewSrc}
+        >
+          Process Image
         </button>
       </div>
     </>

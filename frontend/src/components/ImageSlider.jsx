@@ -17,10 +17,7 @@ const ImageSlider = () => {
         />
         <Carousel.Caption>
           <div className="bg-dark bg-gradient bg-opacity-75 p-3 rounded-3">
-            <h5 className="text-light">First slide label</h5>
-            <span className="text-light">
-              Nulla vitae elit libero, a pharetra augue mollis interdum.
-            </span>
+            <h5 className="text-light">Image of Topaz</h5>
           </div>
         </Carousel.Caption>
       </Carousel.Item>
@@ -32,10 +29,7 @@ const ImageSlider = () => {
         />
         <Carousel.Caption>
           <div className="bg-dark bg-gradient bg-opacity-75 p-3 rounded-3">
-            <h5 className="text-light">Second slide label</h5>
-            <span className="text-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </span>
+            <h5 className="text-light">Image of Presious Ring</h5>
           </div>
         </Carousel.Caption>
       </Carousel.Item>
@@ -47,10 +41,7 @@ const ImageSlider = () => {
         />
         <Carousel.Caption>
           <div className="bg-dark bg-gradient bg-opacity-75 p-3 rounded-3">
-            <h5 className="text-light">Third slide label</h5>
-            <span className="text-light">
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </span>
+            <h5 className="text-light">Image of Blue Sapphire</h5>
           </div>
         </Carousel.Caption>
       </Carousel.Item>

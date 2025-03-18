@@ -38,11 +38,11 @@ function App() {
                 </div>
                 <div className="member-info">
                   <h4 spellCheck="false">Gem Identification</h4>
-                  <span spellCheck="false">Master Chef</span>
                   <p spellCheck="false">
-                    Velit aut quia fugit et et. Dolorum ea voluptate vel tempore
-                    tenetur ipsa quae aut. Ipsum exercitationem iure minima enim
-                    corporis et voluptate.
+                    Curious about the authenticity of your gemstone? Our
+                    advanced tool helps you capture, analyze, and verify your
+                    gem’s unique features with precision. Start your gem
+                    identification journey now.
                   </p>
                 </div>
               </div>
@@ -68,10 +68,11 @@ function App() {
                 </div>
                 <div className="member-info">
                   <h4>Gem Authentication</h4>
-                  <span>Patissier</span>
                   <p>
-                    Find your gem real or synthetic by using AI image
-                    recognition.
+                    Discover the authenticity of your gemstones with our
+                    advanced gem identification model. Simply upload an image,
+                    and our cutting-edge technology will analyze its features to
+                    determine if your gem is natural or synthetic. 
                   </p>
                 </div>
               </div>
@@ -114,25 +115,32 @@ function App() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-     <a href="http://127.0.0.1:5000/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-       <div className="team-member hover-effect image-card">
-         <div className="member-img">
-           <img
-             src="https://i.etsystatic.com/30288025/r/il/9b61e3/6445659420/il_1080xN.6445659420_9yoi.jpg"
-             className="img-fluid"
-             alt=""
-             width="370" // Set your desired width here
-             style={{ height: '311px' }} 
-           />
-         </div>
-         <div className="member-info">
-           <h4>Jewellery Customization</h4>
-           <p>
-           Customize your jewelry by selecting and placing gems in real-time. Instantly see how your chosen design looks on your neck with our live preview feature.
-           </p>
-         </div>
-       </div>
-     </a>
+            <a
+              href="http://127.0.0.1:5000/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="team-member hover-effect image-card">
+                <div className="member-img">
+                  <img
+                    src="https://i.etsystatic.com/30288025/r/il/9b61e3/6445659420/il_1080xN.6445659420_9yoi.jpg"
+                    className="img-fluid"
+                    alt=""
+                    width="370" // Set your desired width here
+                    style={{ height: "311px" }}
+                  />
+                </div>
+                <div className="member-info">
+                  <h4>Jewellery Customization</h4>
+                  <p>
+                    Customize your jewelry by selecting and placing gems in
+                    real-time. Instantly see how your chosen design looks on
+                    your neck with our live preview feature.
+                  </p>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>

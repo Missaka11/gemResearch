@@ -21,7 +21,7 @@ const ThreeDModelView = () => {
     const fetchModels = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:5000/3dmodel/retrieve-models?category=${item}&subcategory=${prediction}`
+          `http://127.0.0.1:5005/3dmodel/retrieve-models?category=${item}&subcategory=${prediction}`
         );
         const data = await response.json();
 
@@ -87,7 +87,7 @@ const ThreeDModelView = () => {
 
       const loader = new GLTFLoader();
 
-      const modelUrl = `http://127.0.0.1:5000${selectedModel.path}`;
+      const modelUrl = `http://127.0.0.1:5005${selectedModel.path}`;
       loader.load(
         modelUrl,
         (gltf) => {
@@ -185,7 +185,7 @@ const ThreeDModelView = () => {
                 onClick={() => handleThumbnailClick(model)}
               >
                 <img
-                  src={`http://127.0.0.1:5000${model.thumbnailPath}`} // Backend should provide a thumbnail for each model
+                  src={`http://127.0.0.1:5005${model.thumbnailPath}`} // Backend should provide a thumbnail for each model
                   alt={`Model ${index}`}
                 />
               </div>
