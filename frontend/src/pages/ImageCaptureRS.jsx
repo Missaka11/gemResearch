@@ -142,7 +142,7 @@ const ImageCaptureRS = () => {
                 imageSrc={capturedImage}
                 onCropComplete={handleCropComplete}
               />
-              <div className="buttons">
+              <div className="buttons mb-4">
                 <Button
                   className="rounded-pill"
                   variant="outline-primary"
