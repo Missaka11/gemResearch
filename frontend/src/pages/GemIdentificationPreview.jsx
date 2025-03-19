@@ -359,6 +359,7 @@ const GemIdentificationPreview = ({ onImage = ({}) => {} }) => {
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
+            height:"60vh"
           }}
         >
           <div className="my-2 fs-3 fw-bold">Upload Gem Image</div>
