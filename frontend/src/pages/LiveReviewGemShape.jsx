@@ -126,31 +126,40 @@ const LiveReviewGemShape = () => {
       <div className="home-container">
         <h2>Upload Image for Shape Analysis</h2>
 
-        <div className="file-upload-section">
-          <input
-            type="file"
-            ref={fileInputRef}
-            onChange={handleFileChange}
-            accept="image/*"
-            style={{ display: "none" }}
-          />
+        {/* File Upload Section */}
+        {!previewSrc && !croppedImage && (
+          <div className="file-upload-section">
+            <div className="drag-drop-zone" onClick={handleBrowseClick}>
+              <p>Drag and drop an image here, or click to browse</p>
+            </div>
 
-          <button
-            className="styled-button browse-button"
-            onClick={handleBrowseClick}
-          >
-            Browse Images
-          </button>
-
-          <div className="file-name">
-            {selectedImage ? selectedImage.name : "No file selected"}
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileChange}
+              accept="image/*"
+              style={{ display: "none" }}
+            />
+            
+            <div className="file-upload-row">
+              <button
+                className="styled-button browse-button"
+                onClick={handleBrowseClick}
+              >
+                Browse
+              </button>
+              <div className="file-name">
+                {selectedImage ? selectedImage.name : "No file selected"}
+              </div>
+            </div>
           </div>
-        </div>
+        )}
 
-        {isCropping && previewSrc ? (
+        {/* Image Preview and Crop Section */}
+        {isCropping && previewSrc && !croppedImage && (
           <div className="crop-container">
             <div
-              style={{ position: "relative", height: "400px", width: "100%" }}
+              style={{ position: "relative", height: "300px", width: "100%" }}
             >
               <Cropper
                 image={previewSrc}
@@ -178,7 +187,7 @@ const LiveReviewGemShape = () => {
 
               <div className="crop-buttons">
                 <button
-                  className="styled-button cancel-button"
+                  className="styled-button-2 cancel-button"
                   onClick={handleCancelCrop}
                 >
                   Cancel
@@ -192,74 +201,40 @@ const LiveReviewGemShape = () => {
               </div>
             </div>
           </div>
-        ) : (
-          <div className="preview-container">
-            {croppedImage ? (
-              <div className="image-preview">
-                <h3>Cropped Preview</h3>
-                <img
-                  src={croppedImage}
-                  alt="Cropped Preview"
-                  className="preview-image"
-                  style={{ maxWidth: "100%", maxHeight: "400px" }}
-                />
-                <div className="image-actions">
-                  <button
-                    className="styled-button recrop-button"
-                    onClick={() => setIsCropping(true)}
-                  >
-                    Re-crop
-                  </button>
-                  <button
-                    className="styled-button reset-button"
-                    onClick={handleReset}
-                  >
-                    Upload New
-                  </button>
-                </div>
-              </div>
-            ) : previewSrc ? (
-              <div className="image-preview">
-                <h3>Preview</h3>
-                <img
-                  src={previewSrc}
-                  alt="Preview"
-                  className="preview-image"
-                  style={{ maxWidth: "100%", maxHeight: "400px" }}
-                />
-                <div className="image-actions">
-                  <button
-                    className="styled-button crop-button"
-                    onClick={() => setIsCropping(true)}
-                  >
-                    Crop
-                  </button>
-                  <button
-                    className="styled-button reset-button"
-                    onClick={handleReset}
-                  >
-                    Upload New
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="no-preview">
-                <p>Image preview will appear here</p>
-              </div>
-            )}
-
-            {/* Hidden canvas for image processing */}
-            <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
-          </div>
         )}
 
-        <button
-          className="styled-button process-button"
-          onClick={handleProcessImage}
-          disabled={!previewSrc}
-        >
-          Process Image
-        </button>
+        {/* Cropped Image Preview and Additional Actions */}
+        {croppedImage && (
+          <div className="image-preview">
+            <h6>Cropped Preview</h6>
+            <img
+              src={croppedImage}
+              alt="Cropped Preview"
+              className="preview-image"
+              style={{ maxWidth: "600px", maxHeight: "400px" }}
+            />
+            <div className="image-actions">
+              <button
+                className="styled-button-3 recrop-button"
+                onClick={() => setIsCropping(true)}
+              >
+                Re-crop
+              </button>
+              <button
+                className="styled-button-2 reset-button"
+                onClick={handleReset}
+              >
+                Upload New
+              </button>
+              <button
+                className="styled-button process-button"
+                onClick={handleProcessImage}
+              >
+                Process Image
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

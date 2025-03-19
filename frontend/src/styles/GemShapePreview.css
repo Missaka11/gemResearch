@@ -6,7 +6,7 @@
   text-align: center;
   background-image: url('/src/assets/images/background-image.jpg');
   background-size: cover;
-  height: 91vh;
+  height: auto;
   padding: 20px;
   overflow: hidden;
   opacity: 0;
