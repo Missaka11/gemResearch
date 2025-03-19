@@ -267,8 +267,8 @@ const WebCamera = ({ onCapture }) => {
 
   return (
     <div className="container p-0">
-    <div className="file-upload-container mb-4 mt-3">
-      <Form.Group controlId="formFile" className="mb-3">
+      <div className="file-upload-container mb-4 mt-3">
+        {/* <Form.Group controlId="formFile" className="mb-3">
         <Form.Label>Choose an image to upload</Form.Label>
         <div className="d-flex flex-column">
           <div className="custom-file-input-container mb-3">
@@ -281,29 +281,52 @@ const WebCamera = ({ onCapture }) => {
           </div>
           <div className="file-name-display mb-3">{fileName}</div>
         </div>
-      </Form.Group>
-  
-      {imgSrc && (
-        <div className="preview-container mb-3">
-          <h5 className="preview-title">Preview:</h5>
-          <img
-            src={imgSrc}
-            alt="Preview"
-            className="img-preview border border-3 rounded-4"
-            style={{ maxWidth: "100%", maxHeight: "300px" }}
-          />
-          <Button
-            onClick={handleReset}
-            className="reset-button mt-3"
-            variant="outline-secondary"
-          >
-            Reset
-          </Button>
-        </div>
-      )}
+      </Form.Group> */}
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Choose an image to upload</Form.Label>
+          <div className="d-flex flex-column">
+            <div className="custom-file-input-container mb-3">
+              {/* Hidden file input */}
+              <Form.Control
+                type="file"
+                accept="image/*"
+                onChange={handleFileChange}
+                className="file-input"
+                id="fileInput" // Add an ID to the file input
+                style={{ display: "none" }} // Hide the file input
+              />
+              {/* Upload button */}
+              <Button
+                variant="primary"
+                onClick={() => document.getElementById("fileInput").click()} // Trigger file input click
+              >
+                Upload Image
+              </Button>
+            </div>
+            <div className="file-name-display mb-3">{fileName}</div>
+          </div>
+        </Form.Group>
+
+        {imgSrc && (
+          <div className="preview-container mb-3">
+            <h5 className="preview-title">Preview:</h5>
+            <img
+              src={imgSrc}
+              alt="Preview"
+              className="img-preview border border-3 rounded-4"
+              style={{ maxWidth: "100%", maxHeight: "300px" }}
+            />
+            <Button
+              onClick={handleReset}
+              className="reset-button mt-3"
+              variant="outline-secondary"
+            >
+              Reset
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-  
   );
 };
 

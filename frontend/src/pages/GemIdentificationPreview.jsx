@@ -350,128 +350,32 @@ const GemIdentificationPreview = ({ onImage = ({}) => {} }) => {
   };
 
   return (
-    <div>
+    <>
       <Header />
-      <div
-        className="w-100 p-2 m-0"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        <div className="my-2 fs-3 fw-bold">Upload Gem Image</div>
+      <div>
+        <div
+          className="w-100 p-2 m-0"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <div className="my-2 fs-3 fw-bold">Upload Gem Image</div>
 
-        {!capturedImage ? (
-          <>
-            <div className="col-md-6 mb-3 text-center">
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileChange}
-                accept="image/*"
-                style={{ display: "none" }}
-              />
+          {!capturedImage ? (
+            <>
+              <div className="col-md-6 mb-3 text-center">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                  accept="image/*"
+                  style={{ display: "none" }}
+                />
 
-              <button
-                onClick={handleBrowseClick}
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "Blue",
-                  fontSize: "19px",
-                  fontWeight: "bolder",
-                  border: 0,
-                }}
-                className="btn btn-info rounded rounded-5 my-3 py-2 px-5 text-white"
-              >
-                Browse Images
-              </button>
-
-              <div className="mt-2">
-                {selectedImage ? selectedImage.name : "No file selected"}
-              </div>
-            </div>
-
-            {isCropping && previewSrc ? (
-              <div className="col-md-6 border border-3 rounded-4">
-                <div
-                  style={{
-                    position: "relative",
-                    height: "400px",
-                    width: "100%",
-                  }}
-                >
-                  <Cropper
-                    image={previewSrc}
-                    crop={crop}
-                    zoom={zoom}
-                    aspect={1}
-                    onCropChange={setCrop}
-                    onCropComplete={onCropComplete}
-                    onZoomChange={setZoom}
-                  />
-                </div>
-
-                <div className="my-3">
-                  <div className="mb-3">
-                    <label>Zoom: {zoom.toFixed(1)}x</label>
-                    <input
-                      type="range"
-                      min={1}
-                      max={3}
-                      step={0.1}
-                      value={zoom}
-                      onChange={(e) => setZoom(parseFloat(e.target.value))}
-                      className="form-range w-50"
-                    />
-                  </div>
-
-                  <div className="d-flex justify-content-center gap-3">
-                    <button
-                      onClick={handleCancelCrop}
-                      style={{
-                        width: "fit-content",
-                        backgroundColor: "Red",
-                        fontSize: "19px",
-                        fontWeight: "bolder",
-                        border: 0,
-                      }}
-                      className="btn rounded rounded-5 py-2 px-5 text-white"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      onClick={handleApplyCrop}
-                      style={{
-                        width: "fit-content",
-                        backgroundColor: "Blue",
-                        fontSize: "19px",
-                        fontWeight: "bolder",
-                        border: 0,
-                      }}
-                      className="btn btn-info rounded rounded-5 py-2 px-5 text-white"
-                    >
-                      Apply Crop
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              previewSrc && (
-                <div className="col-md-6 border border-3 rounded-4 d-flex justify-content-center">
-                  <img
-                    src={previewSrc}
-                    alt="Preview"
-                    style={{ height: "400px", width: "auto" }}
-                  />
-                </div>
-              )
-            )}
-
-            {previewSrc && !isCropping && (
-              <div className="d-flex mt-4">
                 <button
-                  onClick={() => setIsCropping(true)}
+                  onClick={handleBrowseClick}
                   style={{
                     width: "fit-content",
                     backgroundColor: "Blue",
@@ -479,58 +383,156 @@ const GemIdentificationPreview = ({ onImage = ({}) => {} }) => {
                     fontWeight: "bolder",
                     border: 0,
                   }}
-                  className="btn btn-info rounded rounded-5 my-5 py-2 px-5 text-white"
+                  className="btn btn-info rounded rounded-5 my-3 py-2 px-5 text-white"
                 >
-                  Crop Image
+                  Browse Images
+                </button>
+
+                <div className="mt-2">
+                  {selectedImage ? selectedImage.name : "No file selected"}
+                </div>
+              </div>
+
+              {isCropping && previewSrc ? (
+                <div className="col-md-6 border border-3 rounded-4">
+                  <div
+                    style={{
+                      position: "relative",
+                      height: "400px",
+                      width: "100%",
+                    }}
+                  >
+                    <Cropper
+                      image={previewSrc}
+                      crop={crop}
+                      zoom={zoom}
+                      aspect={1}
+                      onCropChange={setCrop}
+                      onCropComplete={onCropComplete}
+                      onZoomChange={setZoom}
+                    />
+                  </div>
+
+                  <div className="my-3">
+                    <div className="mb-3">
+                      <label>Zoom: {zoom.toFixed(1)}x</label>
+                      <input
+                        type="range"
+                        min={1}
+                        max={3}
+                        step={0.1}
+                        value={zoom}
+                        onChange={(e) => setZoom(parseFloat(e.target.value))}
+                        className="form-range w-50"
+                      />
+                    </div>
+
+                    <div className="d-flex justify-content-center gap-3">
+                      <button
+                        onClick={handleCancelCrop}
+                        style={{
+                          width: "fit-content",
+                          backgroundColor: "Red",
+                          fontSize: "19px",
+                          fontWeight: "bolder",
+                          border: 0,
+                        }}
+                        className="btn rounded rounded-5 py-2 px-5 text-white"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={handleApplyCrop}
+                        style={{
+                          width: "fit-content",
+                          backgroundColor: "Blue",
+                          fontSize: "19px",
+                          fontWeight: "bolder",
+                          border: 0,
+                        }}
+                        className="btn btn-info rounded rounded-5 py-2 px-5 text-white"
+                      >
+                        Apply Crop
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                previewSrc && (
+                  <div className="col-md-6 border border-3 rounded-4 d-flex justify-content-center">
+                    <img
+                      src={previewSrc}
+                      alt="Preview"
+                      style={{ height: "400px", width: "auto" }}
+                    />
+                  </div>
+                )
+              )}
+
+              {previewSrc && !isCropping && (
+                <div className="d-flex mt-4">
+                  <button
+                    onClick={() => setIsCropping(true)}
+                    style={{
+                      width: "fit-content",
+                      backgroundColor: "Blue",
+                      fontSize: "19px",
+                      fontWeight: "bolder",
+                      border: 0,
+                    }}
+                    className="btn btn-info rounded rounded-5 my-5 py-2 px-5 text-white"
+                  >
+                    Crop Image
+                  </button>
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <div className="col-md-6 border border-3 rounded-4 d-flex justify-content-center">
+                <img
+                  src={capturedImage}
+                  alt="Captured"
+                  style={{ height: "400px", width: "auto" }}
+                />
+              </div>
+
+              <div className="d-flex mt-4">
+                <button
+                  onClick={handleReset}
+                  style={{
+                    width: "fit-content",
+                    backgroundColor: "Red",
+                    fontSize: "19px",
+                    fontWeight: "bolder",
+                    border: 0,
+                    marginRight: "15px",
+                  }}
+                  className="btn rounded rounded-5 py-2 px-5 text-white"
+                >
+                  Upload New
+                </button>
+
+                <button
+                  onClick={handleUpload}
+                  style={{
+                    width: "fit-content",
+                    backgroundColor: "Blue",
+                    fontSize: "19px",
+                    fontWeight: "bolder",
+                    border: 0,
+                  }}
+                  className="btn btn-info rounded rounded-5 py-2 px-5 text-white"
+                >
+                  Upload the Image
                 </button>
               </div>
-            )}
-          </>
-        ) : (
-          <>
-            <div className="col-md-6 border border-3 rounded-4 d-flex justify-content-center">
-              <img
-                src={capturedImage}
-                alt="Captured"
-                style={{ height: "400px", width: "auto" }}
-              />
-            </div>
-
-            <div className="d-flex mt-4">
-              <button
-                onClick={handleReset}
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "Red",
-                  fontSize: "19px",
-                  fontWeight: "bolder",
-                  border: 0,
-                  marginRight: "15px",
-                }}
-                className="btn rounded rounded-5 py-2 px-5 text-white"
-              >
-                Upload New
-              </button>
-
-              <button
-                onClick={handleUpload}
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "Blue",
-                  fontSize: "19px",
-                  fontWeight: "bolder",
-                  border: 0,
-                }}
-                className="btn btn-info rounded rounded-5 py-2 px-5 text-white"
-              >
-                Upload the Image
-              </button>
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </div>
       </div>
       <FooterComp />
-    </div>
+    </>
   );
 };
 
