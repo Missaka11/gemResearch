@@ -22,10 +22,16 @@ export const FooterComp = () => {
               <li className="list-group-item footer-items fs-6 fw-bold">
                 Get help
               </li>
-              <li className="list-group-item footer-items">Gem Identification</li>
-              <li className="list-group-item footer-items">Gem Classification</li>
+              <li className="list-group-item footer-items">
+                Gem Identification
+              </li>
+              <li className="list-group-item footer-items">
+                Gem Classification
+              </li>
               <li className="list-group-item footer-items">Jewelry Designs</li>
-              <li className="list-group-item footer-items">Designs Your Own Jewelry</li>
+              <li className="list-group-item footer-items">
+                Designs Your Own Jewelry
+              </li>
             </ul>
           </div>
           <div className="col-md-3">

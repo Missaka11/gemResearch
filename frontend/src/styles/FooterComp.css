@@ -20,16 +20,16 @@
   font-size: 0.8em;
   font-weight: 300;
 }
-.footer-contentDiv{
+.footer-contentDiv {
   background-color: #343a40;
 }
-.footer-linksDiv{
+.footer-linksDiv {
   margin-left: 9%;
   width: 100%;
   margin: 0;
 }
 
-.footer-items{
+.footer-items {
   background-color: #343a40;
   color: #f8f9fa;
   border: none;

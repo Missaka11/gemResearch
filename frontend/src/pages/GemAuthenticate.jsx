@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DollermanImage from "../assets/images/Dollerman.png";
 import { Header } from "../components/Header";
 import { FooterComp } from "../components/FooterComp";
 import { NavLink } from "react-router-dom";
 
 const GemAuthenticate = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Header />
@@ -14,8 +17,8 @@ const GemAuthenticate = () => {
         data-colorpreset="cp-light-background"
       >
         <div className="container">
-          <div className="row gy-4 justify-content-center justify-content-lg-between">
-            <div className="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <div className="row justify-content-center justify-content-lg-between">
+            <div className="col-lg-5 order-1 order-lg-1 d-flex flex-column justify-content-center">
               <h1 data-aos="fade-up">
                 Identify Your <br />
                 Gem Real or Synthetic
@@ -37,7 +40,7 @@ const GemAuthenticate = () => {
               </div>
             </div>
             <div
-              className="col-lg-5 order-1 order-lg-2 hero-img"
+              className="col-lg-5 order-2 order-lg-2 hero-img"
               data-aos="zoom-out"
             >
               <img
