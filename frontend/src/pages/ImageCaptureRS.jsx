@@ -207,7 +207,7 @@
 // export default ImageCaptureRS;
 
 import React, { useEffect, useState, useRef } from "react";
-import WebCamera from "../components/WebCamera"; // Updated import
+import UploadImageComp from "../components/UploadImageComp"; // Updated import
 import ImageCrop from "../components/ImageCrop";
 import "../styles/CameraAndCropApp.css";
 import { Header } from "../components/Header";
@@ -346,7 +346,7 @@ const ImageCaptureRS = () => {
 
       <div className="content-container">
         {!uploadedImage ? (
-          <WebCamera onCapture={handleFileCapture} />
+          <UploadImageComp onCapture={handleFileCapture} />
         ) : isCropping ? (
           <div className="cropAndUploadSection">
             <ImageCrop

@@ -241,7 +241,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/WebCamera.css"; // You may want to rename this CSS file later
 
-const WebCamera = ({ onCapture }) => {
+const UploadImageComp = ({ onCapture }) => {
   const [imgSrc, setImgSrc] = useState(null);
   const [fileName, setFileName] = useState("No file chosen");
 
@@ -268,20 +268,6 @@ const WebCamera = ({ onCapture }) => {
   return (
     <div className="container p-0">
       <div className="file-upload-container mb-4 mt-3">
-        {/* <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Choose an image to upload</Form.Label>
-        <div className="d-flex flex-column">
-          <div className="custom-file-input-container mb-3">
-            <Form.Control
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="file-input"
-            />
-          </div>
-          <div className="file-name-display mb-3">{fileName}</div>
-        </div>
-      </Form.Group> */}
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Choose an image to upload</Form.Label>
           <div className="d-flex flex-column">
@@ -295,7 +281,6 @@ const WebCamera = ({ onCapture }) => {
                 id="fileInput" // Add an ID to the file input
                 style={{ display: "none" }} // Hide the file input
               />
-              {/* Upload button */}
               <Button
                 variant="primary"
                 onClick={() => document.getElementById("fileInput").click()} // Trigger file input click
@@ -330,4 +315,4 @@ const WebCamera = ({ onCapture }) => {
   );
 };
 
-export default WebCamera;
+export default UploadImageComp;
