@@ -105,7 +105,7 @@ const ImageCrop = ({ imageSrc, onCropComplete, onCropDone }) => {
           onZoomChange={handleZoomChange}
         />
       </div>
-      <div className="slider-container mt-3 mb-3">
+      <div className="slider-container mt-3 mb-3 col-md-5 mx-auto">
         <label htmlFor="zoom-slider">Zoom: {zoom.toFixed(1)}x</label>
         <input
           id="zoom-slider"
@@ -118,9 +118,11 @@ const ImageCrop = ({ imageSrc, onCropComplete, onCropDone }) => {
           className="form-range"
         />
       </div>
-      <Button className="rounded-pill" variant="primary" onClick={handleDone}>
-        Apply Crop
-      </Button>
+      <div className="justify-content-center d-flex">
+        <Button className="rounded-pill crop-button" variant="primary" onClick={handleDone}>
+          Apply Crop
+        </Button>
+      </div>
     </div>
   );
 };

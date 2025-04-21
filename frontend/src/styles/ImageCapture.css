@@ -7,3 +7,7 @@
 .reactEasyCrop_Container {
   border-radius: 1rem;
 }
+
+.crop-button{
+  padding: 10px 20px;
+}
