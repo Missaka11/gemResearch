@@ -8,7 +8,7 @@ import { Header } from "../components/Header";
 
 const ThreeDModelView = () => {
   const location = useLocation();
-  const { item, prediction } = location.state || {}; // Retrieve item and prediction
+  const { item, prediction, imageDataUrl } = location.state || {}; // Retrieve item and prediction
   console.log(item, prediction);
 
   const [models, setModels] = useState([]);
@@ -92,23 +92,78 @@ const ThreeDModelView = () => {
         modelUrl,
         (gltf) => {
           const modelScene = gltf.scene;
-
-          // Adjust scale, position, and material for realism
+      
           modelScene.scale.set(1.5, 1.5, 1.5);
           modelScene.position.set(0, 0, 0);
+      
+          let gemMesh = null;
+          let jewelryMesh = null;
+      
           modelScene.traverse((child) => {
             if (child.isMesh) {
-              child.material.metalness = 0.8; // Enhance reflectivity
-              child.material.roughness = 0.1; // Smooth the surface
+              if (child.name === "base001" || child.name === "model001" || child.name === "model003") {
+                gemMesh = child;
+              } else {
+                jewelryMesh = child;
+              }
+      
+              child.material.metalness = 0.8;
+              child.material.roughness = 0.1;
               child.material.needsUpdate = true;
             }
           });
-
+        
+          // Apply uploaded image as texture to gemMesh only
+          if (gemMesh && imageDataUrl) {
+            const image = new Image();
+            image.crossOrigin = "anonymous";
+            image.src = imageDataUrl;
+          
+            image.onload = () => {
+              const zoomFactor = 1.5;
+          
+              // Define the size of the cropped area
+              const targetSize = 512;
+              const canvas = document.createElement("canvas");
+              canvas.width = targetSize;
+              canvas.height = targetSize;
+              const ctx = canvas.getContext("2d");
+          
+              // Calculate center crop and zoom
+              const cropWidth = image.width / zoomFactor;
+              const cropHeight = image.height / zoomFactor;
+              const sx = (image.width - cropWidth) / 2;
+              const sy = (image.height - cropHeight) / 2;
+          
+              ctx.drawImage(
+                image,
+                sx, sy, cropWidth, cropHeight, // source rect (zoomed area)
+                0, 0, targetSize, targetSize   // destination rect (canvas full size)
+              );
+          
+              const zoomedDataUrl = canvas.toDataURL("image/png");
+          
+              const textureLoader = new THREE.TextureLoader();
+              textureLoader.load(zoomedDataUrl, (texture) => {
+                gemMesh.material = new THREE.MeshStandardMaterial({
+                  map: texture,
+                  metalness: 0.4,
+                  roughness: 0.2,
+                  transparent: true,
+                });
+                gemMesh.material.needsUpdate = true;
+              });
+            };
+          }
+          
+          
+      
           scene.add(modelScene);
         },
         undefined,
-        (error) =>
-          console.error(`Error loading model: ${selectedModel.filename}`, error)
+        (error) => {
+          console.error(`Error loading model: ${selectedModel.filename}`, error);
+        }
       );
 
       const animate = () => {

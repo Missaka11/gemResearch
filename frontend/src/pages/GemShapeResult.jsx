@@ -6,11 +6,11 @@ import { Header } from "../components/Header";
 const GemShapeResult = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { prediction, imageDataUrl } = location.state || {}; // Retrieve prediction and image URL from state
+  const { prediction, color ,  imageDataUrl } = location.state || {}; // Retrieve prediction and image URL from state
 
   // Function to navigate to the 3D model view page
   const handleCardClick = (item) => {
-    navigate("/ThreeDModelView", { state: { item, prediction } });
+    navigate("/ThreeDModelView", { state: { item, prediction, color , imageDataUrl} });
   };
 
   const handleScrollDown = () => {
@@ -55,6 +55,18 @@ const GemShapeResult = () => {
               Your Gem Shape <br />
               <span style={{ color: "red", fontSize: "60px" }}>
                 {prediction}
+              </span>
+            </h2>
+          </div>
+        ) : (
+          <p>No prediction available. Please try uploading an image first.</p>
+        )}
+        {color ? (
+          <div className="result">
+            <h2>
+              Your Gem Shape Color<br />
+              <span style={{ color: "red", fontSize: "60px" }}>
+                {color}
               </span>
             </h2>
           </div>

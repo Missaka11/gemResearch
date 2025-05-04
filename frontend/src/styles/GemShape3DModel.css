@@ -84,6 +84,30 @@
   border-radius: 8px;
 }
 
+.color-palette {
+  margin-bottom: 10px;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  border-color: #333;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .three-d-view {

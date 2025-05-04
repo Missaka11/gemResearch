@@ -107,19 +107,23 @@ const LiveReviewGemShape = () => {
   };
 
   // Process the selected image
-  const handleProcessImage = () => {
+  const handleProcessImage = async () => {
     if (!croppedImage && !previewSrc) {
       alert("Please select an image first");
       return;
     }
-
-    // Use the cropped image if available, otherwise use the original preview
+  
     const imageToProcess = croppedImage || previewSrc;
-
-    // Navigate to preview page with the image data
-    navigate("/GemShapePreview", { state: { imageDataUrl: imageToProcess } });
+  
+    try {
+      // Directly navigate to the next page with the selected image
+      navigate("/GemShapePreview", { state: { imageDataUrl: imageToProcess } });
+    } catch (error) {
+      console.error("Error processing image:", error);
+      alert("Failed to proceed with the selected image.");
+    }
   };
-
+  
   return (
     <>
       <Header />
@@ -178,7 +182,7 @@ const LiveReviewGemShape = () => {
                 <input
                   type="range"
                   min={1}
-                  max={3}
+                  max={8}
                   step={0.1}
                   value={zoom}
                   onChange={(e) => setZoom(parseFloat(e.target.value))}

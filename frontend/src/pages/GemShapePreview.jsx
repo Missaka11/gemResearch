@@ -45,7 +45,7 @@ const GemShapePreview = () => {
 
       // Navigate to the result page with the prediction and imageDataUrl
       navigate("/GemShapeResult", {
-        state: { prediction: apiResponse.data, imageDataUrl },
+        state: { prediction: apiResponse.data.predicted_shape, color: apiResponse.data.dominant_color , imageDataUrl },
       });
     } catch (err) {
       setLoading(false);
