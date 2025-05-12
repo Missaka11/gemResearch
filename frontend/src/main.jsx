@@ -11,10 +11,10 @@ import GemShapePreview from "./pages/GemShapePreview.jsx";
 import GemShapeResult from "./pages/GemShapeResult.jsx";
 import InstructionsPage from "./pages/Instructions.jsx"
 import GemIdentification from "./pages/GemIdentification.jsx";
-import GemIdentificationPreview from "./pages/GemIdentificationPreview.jsx";
+import GemIdentificationUpload from "./pages/GemIdentificationUpload.jsx";
+import GemIdentificationResults from "./pages/GemIdentificationResults.jsx";
 import ThreeDModelView from "./pages/GemShape3DModel.jsx";
-import Upload from "./pages/Upload.jsx";
-import Report from "./pages/Report.jsx";
+
 
 import { useState } from "react";
 
@@ -25,14 +25,9 @@ function AppWrapper() {
 
   const onImage = ({image=""}) => {
     setImage(image);
-    navigate("/upload");
+    navigate("/GemIdentificationResults");
   };
   
-  const onType = (type) => {
-    console.log('Type received:', type);
-    setType(type);
-    navigate("/report");
-  };
 
   return (
     <Routes>
@@ -40,16 +35,17 @@ function AppWrapper() {
       <Route path="/" element={<App />} />
       <Route path="/GemIdentification" element={<GemIdentification />} />
       <Route
-        path="/GemIdentificationPreview"
-        element={<GemIdentificationPreview onImage={onImage} />}
+        path="/GemIdentificationUpload"
+        element={<GemIdentificationUpload onImage={onImage} />}
       />
       <Route
-        path="/upload"
-        element={<Upload onType={onType} image={image} />}
+        path="/GemIdentificationResults"
+        element={<GemIdentificationResults />}
       />
+
       <Route
-        path="/report"
-        element={<Report image={image} type={type} />}
+        path="/GemIdentificationResults"
+        element={<GemIdentificationResults />}
       />
         <Route path="/GemAuthenticate" element={<GemAuthenticate />} />
         <Route

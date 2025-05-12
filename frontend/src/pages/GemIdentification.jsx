@@ -4,6 +4,8 @@ import Background from "../assets/images/background-image.jpg";
 import humanImage from "../assets/images/human-2.png";
 import { Header } from "../components/Header";
 import { FooterComp } from "../components/FooterComp";
+import "../styles/gemIdentification.css";
+import "../styles/gemIdentificationUpload.css";
 
 const GemIdentification = ({ setPath = ({}) => {} }) => {
   const navigate = useNavigate();
@@ -12,82 +14,69 @@ const GemIdentification = ({ setPath = ({}) => {} }) => {
     <>
       <Header />
       <div
-        className="w-100 p-0 m-0"
-        style={{ position: "relative", display: "inline-block" }}
+        className="gem-identification-container"
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          overflow: "hidden"
+        }}
       >
         <img
-          style={{ width: "100%", height: "auto" }}
+          className="background-image"
           src={Background}
           alt="Background 1"
-        />
-        <div
           style={{
-            position: "absolute",
             width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            position: "absolute",
             top: 0,
             left: 0,
-            height: "auto",
+            zIndex: -1
+          }}
+        />
+        <div
+          className="gem-content"
+          style={{
+            position: "relative",
+            padding: "2rem",
+            display: "flex"
           }}
         >
-          <div className="row m-0 p-5" style={{ height: "auto" }}>
-            <div className="col-1"></div>
-            <div className="col-4 py-5 my-5 d-flex justify-content-between flex-column">
-              <div
-                data-aos="fade-up"
-                style={{ fontSize: "60px", fontWeight: "bolder" }}
-              >
-                Identify Your
-                <br />
-                Gem !
-              </div>
-              <div
-                data-aos="fade-up"
-                data-aos-delay="100"
-                style={{ fontSize: "20px", fontWeight: "normal" }}
-              >
-                Curious about the authenticity of your gemstone? Our advanced
-                tool helps you capture, analyze, and verify your gem’s unique
-                features with precision. Start your gem identification journey
-                now.
-              </div>
+          <div className="text-section gem-text-section">
+            <h1 className="gem-title" data-aos="fade-up">
+              Identify Your
+              <br />
+              <span className="gem-highlight">Gem</span> !
+            </h1>
+            <p className="gem-description" data-aos="fade-up" data-aos-delay="100">
+              Curious about the authenticity of your gemstone? Our advanced
+              tool helps you capture, analyze, and verify your gem’s unique
+              features with precision. Start your gem identification journey
+              now.
+            </p>
 
-              <button
-                onClick={() => {
-                  navigate("/GemIdentificationPreview");
-                }}
-                style={{
-                  width: "fit-content",
-                  backgroundColor: "Blue",
-                  fontSize: "19px",
-                  fontWeight: "bolder",
-                  border: 0,
-                }}
-                className="btn btn-info rounded rounded-5 mt-5 py-2 px-5 text-white"
-              >
-                {"Capture the Image"}
-                {/* <i className="fa fa-arrow-right ms-3 text-dark bg-white rounded rounded-circle p-1"></i> */}
-              </button>
-            </div>
-            <div className="col-1"></div>
-            <div
-              className="col-6"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
+            <button
+              onClick={() => {
+                navigate("/GemIdentificationUpload");
               }}
+              className="gem-capture-btn"
             >
-              <img
-                src={humanImage}
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  objectFit: "contain",
-                }}
-                alt="Human Image"
-              />
-            </div>
+              Upload the Image
+            </button>
+          </div>
+          <div className="image-section gem-image-section">
+            <img
+              src={humanImage}
+              className="human-image"
+              alt="Human Image"
+              style={{
+                maxWidth: "100%",
+                maxHeight: "100%",
+                objectFit: "contain",
+                transition: "transform 0.3s ease-in-out"
+              }}
+            />
           </div>
         </div>
       </div>
