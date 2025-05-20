@@ -1,156 +1,493 @@
-/* Overall container for the 3D view */
-.three-d-view-container {
-  text-align: center;
-  padding: 50px;
-  height: 93vh;
-  background: radial-gradient(circle, #010122, #9d9d9e);
+.jewelry-detail-container {
+  max-width: 100%;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--dark-bg), #2a2a4a);
+  min-height: 100vh;
+  color: var(--text-light);
 }
 
-/* Title styling */
-.synonymtopic {
+.jewelry-title {
   font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #fff !important;
-}
-
-/* Flex container for the 3D model view and thumbnails */
-.three-d-view {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  /* Gap between 3D model and thumbnails */
-  flex-wrap: wrap;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-/* Left section - 3D model container */
-.model-container {
-  width: 60%;
-  /* Adjust the size of the 3D model container */
-  min-width: 600px;
+  margin-bottom: 40px;
+  font-weight: 700;
   text-align: center;
+  letter-spacing: 1px;
 }
 
-/* Description below the 3D model */
-.model-description {
-  margin-top: 20px;
-  margin-bottom: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.5;
-  padding: 10px;
-  border-radius: 8px;
-  font-style: italic;
+.title-highlight {
+  color: var(--accent-color);
+  position: relative;
 }
 
-#threejs-container {
-  width: 800px;
-  height: 600px;
-  margin: 0 auto;
-  background-color: #efefef;
-  border: 1px solidrgba(109, 111, 112, 0.82)
-}
-
-/* Right section - Thumbnails container */
-.thumbnails-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* Two-column grid */
-  gap: 20px;
-  width: 35%;
-  /* Adjust the width of the thumbnails section */
-  min-width: 300px;
-  height: 600px;
-}
-
-.thumbnail {
-  cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.thumbnail:hover {
-  transform: scale(1.05);
-  border-color: rgb(0, 255, 34);
-  /* Change border color on hover */
-}
-
-.thumbnail img {
+.title-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
-.color-palette {
-  margin-bottom: 10px;
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--accent-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.error-icon {
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+/* ====== Jewelry View Layout ====== */
+.jewelry-view-layout {
+  display: flex;
+  gap: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Model Showcase Section */
+.model-showcase {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.model-viewer {
+  width: 100%;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.model-controls {
+  display: flex;
+  gap: 24px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 24px;
+}
+
+.metal-selector {
+  flex: 1;
+}
+
+.metal-selector h3 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .color-options {
   display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border-color: var(--text-light);
+  transform: scale(1.1);
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-light);
+  font-size: 1.2rem;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.model-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-info h3 {
+  margin-bottom: 8px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.model-info p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.add-to-wishlist {
+  margin-top: auto;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  max-width: 200px;
+}
+
+.add-to-wishlist:hover {
+  background-color: var(--accent-color);
+  color: var(--dark-bg);
+}
+
+.heart-icon {
+  margin-right: 8px;
+}
+
+/* Model Selection Gallery */
+.model-selection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-selection h3 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  overflow-y: auto;
+  max-height: 600px;
+  padding-right: 8px;
+}
+
+.thumbnail-image {
+  width: 280px;
+  height: 230px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f0f0f0;
+}
+
+.thumbnails-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.thumbnails-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.thumbnails-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.thumbnails-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.thumbnail-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.thumbnail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.thumbnail-card.active {
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.thumbnail-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+
+.thumbnail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.selected-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnail-name {
+  padding: 12px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ====== Grid View Styles ====== */
+.jewelry-grid-container {
+  max-width: 100%;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--dark-bg), #2a2a4a);
+  min-height: 100vh;
+  color: var(--text-light);
+}
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-color);
+  color: var(--dark-bg);
+}
+
+.jewelry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.jewelry-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--card-shadow);
+}
+
+.jewelry-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--hover-shadow);
+}
+
+.jewelry-preview {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(108, 99, 255, 0.2), rgba(255, 215, 0, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jewelry-details {
+  padding: 20px;
+}
+
+.jewelry-name {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.jewelry-category {
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.jewelry-actions {
+  display: flex;
   gap: 10px;
 }
 
-.color-swatch {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid #ccc;
+.view-details-btn {
+  flex: 1;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: var(--transition);
 }
 
-.color-swatch:hover {
-  transform: scale(1.1);
-  border-color: #333;
+.view-details-btn:hover {
+  background-color: #5a52d5;
 }
 
+.wishlist-btn {
+  width: 40px;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+}
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .three-d-view {
+.wishlist-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+.back-button-container {
+  margin: 10px 0 0 30px;
+}
+
+.back-button {
+  background-color: #eee;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #ddd;
+}
+
+/* ====== Responsive Styles ====== */
+@media screen and (max-width: 1200px) {
+  .jewelry-view-layout {
     flex-direction: column;
-    align-items: center;
   }
-
-  .model-container {
-    width: 100%;
-    min-width: 100%;
+  
+  .model-showcase {
+    flex: auto;
   }
-
-  .thumbnails-container {
-    width: 100%;
-    grid-template-columns: repeat(1, 1fr);
-    /* Single column layout on smaller screens */
+  
+  .model-selection {
+    flex: auto;
+  }
+  
+  .thumbnails-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-height: none;
   }
 }
 
-@media (max-width: 1440px) {
-
-  .three-d-view-container {
-    padding: 20px 50px;
-    height: 91vh;
+@media screen and (max-width: 768px) {
+  .jewelry-detail-container,
+  .jewelry-grid-container {
+    padding: 20px;
   }
-
-  .model-container {
-    width: 40%;
-    /* Adjust the size of the 3D model container */
-    min-width: 400px;
-    text-align: center;
+  
+  .jewelry-title {
+    font-size: 2rem;
   }
-
-  #threejs-container {
-    width: 600px;
-    height: 400px;
-    margin: 0 auto;
-    background-color: #efefef;
-    border: 1px solidrgba(109, 111, 112, 0.82)
+  
+  .model-controls {
+    flex-direction: column;
   }
+  
+  .model-viewer {
+    height: 350px;
+  }
+  
+  .thumbnails-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .jewelry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+}
 
-  .model-description {
-    font-size: 1rem;
-    width: 600px;
+@media screen and (max-width: 480px) {
+  .jewelry-title {
+    font-size: 1.8rem;
+  }
+  
+  .thumbnails-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

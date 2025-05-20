@@ -112,9 +112,9 @@ const LiveReviewGemShape = () => {
       alert("Please select an image first");
       return;
     }
-  
+
     const imageToProcess = croppedImage || previewSrc;
-  
+
     try {
       // Directly navigate to the next page with the selected image
       navigate("/GemShapePreview", { state: { imageDataUrl: imageToProcess } });
@@ -123,7 +123,7 @@ const LiveReviewGemShape = () => {
       alert("Failed to proceed with the selected image.");
     }
   };
-  
+
   return (
     <>
       <Header />
@@ -144,7 +144,7 @@ const LiveReviewGemShape = () => {
               accept="image/*"
               style={{ display: "none" }}
             />
-            
+
             <div className="file-upload-row">
               <button
                 className="styled-button browse-button"
@@ -161,10 +161,8 @@ const LiveReviewGemShape = () => {
 
         {/* Image Preview and Crop Section */}
         {isCropping && previewSrc && !croppedImage && (
-          <div className="crop-container">
-            <div
-              style={{ position: "relative", height: "300px", width: "100%" }}
-            >
+          <div className="cropper-container">
+            <div className="cropper-wrapper">
               <Cropper
                 image={previewSrc}
                 crop={crop}
@@ -178,28 +176,33 @@ const LiveReviewGemShape = () => {
 
             <div className="crop-controls">
               <div className="zoom-control">
-                <label>Zoom: {zoom.toFixed(1)}x</label>
-                <input
-                  type="range"
-                  min={1}
-                  max={8}
-                  step={0.1}
-                  value={zoom}
-                  onChange={(e) => setZoom(parseFloat(e.target.value))}
-                />
+                <div className="zoom-label">
+                  <span className="zoom-icon">🔍</span>
+                  <span>Zoom: {zoom.toFixed(1)}x</span>
+                </div>
+                <div className="slider-container">
+                  <input
+                    type="range"
+                    min={1}
+                    max={8}
+                    step={0.1}
+                    value={zoom}
+                    className="zoom-slider"
+                    onChange={(e) => setZoom(parseFloat(e.target.value))}
+                  />
+                </div>
               </div>
 
               <div className="crop-buttons">
                 <button
-                  className="styled-button-2 cancel-button"
+                  className="crop-button cancel"
                   onClick={handleCancelCrop}
                 >
+                  <span className="button-icon">✕</span>
                   Cancel
                 </button>
-                <button
-                  className="styled-button apply-button"
-                  onClick={handleApplyCrop}
-                >
+                <button className="crop-button apply" onClick={handleApplyCrop}>
+                  <span className="button-icon">✓</span>
                   Apply Crop
                 </button>
               </div>
@@ -209,33 +212,36 @@ const LiveReviewGemShape = () => {
 
         {/* Cropped Image Preview and Additional Actions */}
         {croppedImage && (
-          <div className="image-preview">
-            <h6>Cropped Preview</h6>
-            <img
-              src={croppedImage}
-              alt="Cropped Preview"
-              className="preview-image"
-              style={{ maxWidth: "600px", maxHeight: "400px" }}
-            />
-            <div className="image-actions">
-              <button
-                className="styled-button-3 recrop-button"
-                onClick={() => setIsCropping(true)}
-              >
-                Re-crop
-              </button>
-              <button
-                className="styled-button-2 reset-button"
-                onClick={handleReset}
-              >
-                Upload New
-              </button>
-              <button
-                className="styled-button process-button"
-                onClick={handleProcessImage}
-              >
-                Process Image
-              </button>
+          <div className="image-preview-container">
+            <div className="preview-card">
+              <h4 className="preview-title">Cropped Image</h4>
+              <div className="image-wrapper">
+                <img
+                  src={croppedImage}
+                  alt="Cropped Preview"
+                  className="preview-image"
+                />
+              </div>
+              <div className="image-actions">
+                <button
+                  className="action-button recrop"
+                  onClick={() => setIsCropping(true)}
+                >
+                  <span className="button-icon">✂️</span>
+                  Re-crop
+                </button>
+                <button className="action-button upload" onClick={handleReset}>
+                  <span className="button-icon">📁</span>
+                  New Image
+                </button>
+                <button
+                  className="action-button process"
+                  onClick={handleProcessImage}
+                >
+                  <span className="button-icon">✓</span>
+                  Process
+                </button>
+              </div>
             </div>
           </div>
         )}
