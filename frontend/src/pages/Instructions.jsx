@@ -11,13 +11,10 @@ const InstructionsPage = () => {
   const navigate = useNavigate();
   // Instructions for each step
   const instructions = [
-    "Step 1: Connect your camera using an HDMI to mini-HDMI cable. Connect the mini-HDMI part to the camera and the HDMI part to the capture card.",
-    "Step 2: Connect the capture card to your device. This will allow you to see the live preview of the camera.",
-    "Step 3: Set up the white box with white background light. Position the camera correctly, focusing on the white box light for stability. Use a tripod if needed for better focus.",
-    "Step 4: Decide which path to take for gem identification: choose whether you want to identify the gem or classify it.",
-    "Step 5: If you want to identify whether the gem is synthetic or real, choose the 'Gem Classification' path.",
-    "Step 6: If you want to identify the gem shape and get relevant 3D jewelry designs, choose the 'Gem Shape Identification' path.",
-    "Step 7: If you want to create your own jewelry, proceed to the 'AR' path for augmented reality options.",
+    "Step 1: Decide which path to take for gem identification: choose whether you want to identify the gem or classify it.",
+    "Step 2: If you want to identify whether the gem is synthetic or real, choose the 'Gem Authentication' path.",
+    "Step 3: If you want to identify the gem shape and get relevant 3D jewelry designs, choose the 'Jewelry Designs' path.",
+    "Step 4: If you want to create your own jewelry, proceed to the 'Jewelry Customization' path for augmented reality options.",
   ];
 
   // Handle progressing to the next step
@@ -43,10 +40,10 @@ const InstructionsPage = () => {
             <h2 className="instruction-topic">How it Works</h2>
             {/* <p>Follow the steps below to set up your camera and decide on your gem-related tasks.</p> */}
 
-            <ProgressBar
+            {/* <ProgressBar className="progress-bar"
               now={(step / instructions.length) * 100}
               label={`${step + 1} / ${instructions.length}`}
-            />
+            /> */}
 
             <div className="instruction-step">
               <h4>Step {step + 1}</h4>
@@ -87,17 +84,17 @@ const InstructionsPage = () => {
                   onClick={() => navigate("/GemAuthenticate")}
                   className="m-2"
                 >
-                  Gem Classification
+                  Gem Authentication
                 </Button>
                 <Button
                   variant="success"
                   onClick={() => navigate("/GemShapeCapture")}
                   className="m-2"
                 >
-                  Gem Shape Identification
+                  Jewelry Desings
                 </Button>
                 <Button variant="success" className="m-2">
-                  AR Jewelry Creation
+                  Jewelry Customization
                 </Button>
               </div>
             )}

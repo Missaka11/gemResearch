@@ -102,8 +102,7 @@ function App() {
                     Discover a wide range of exquisite jewelry designs in 3D!
                     From elegant earrings to stunning rings, necklaces, and
                     bracelets, our interactive models allow you to see every
-                    detail before making your purchase. Experience the beauty
-                    and craftsmanship of our designs like never before!
+                    detail before making your purchase.
                   </p>
                 </div>
               </div>
@@ -147,53 +146,53 @@ function App() {
       <ImageSlider />
 
       {/* About Us Section */}
-      <div
+      {/* <div
         id="about-us-section"
         className="about-us-section"
         style={{ height: "100vh" }}
       >
         <h2 className="about-us-heading about-header-nav-link">About Us</h2>
 
-        <div className="row about-row">
+        <div className="row about-row"> */}
           {/* Left side: Image */}
-          <div className="col-lg-6 about-image">
+          {/* <div className="col-lg-6 about-image">
             <img
               src={AboutUsImage}
               alt="About Us"
               className="img-fluid about-us-image"
             />
-          </div>
+          </div> */}
 
           {/* Right side: Content */}
-          <div className="col-lg-6 about-content">
+          {/* <div className="col-lg-6 about-content">
             <h2 className="about-us-sub-heading">Who We Are</h2>
             <p>
               We are a team of passionate individuals focused on transforming
               the jewelry industry by providing interactive and realistic 3D
               model experiences. Our goal is to offer cutting-edge technology to
               enhance your jewelry shopping experience.
-            </p>
+            </p> */}
 
             {/* Hidden Content (Initially hidden, revealed on click) */}
-            <div className={`more-details ${showMore ? "show" : ""}`}>
+            {/* <div className={`more-details ${showMore ? "show" : ""}`}>
               <p>
                 Our designs are crafted by skilled artisans who bring unique
                 creativity into every piece. We focus on high-quality materials
                 and provide you with a virtual experience to view each piece
                 from every angle, ensuring you make the right choice.
               </p>
-            </div>
+            </div> */}
 
             {/* Read More Button */}
-            <button
+            {/* <button
               className="btn btn-primary read-more-btn"
               onClick={handleReadMore}
             >
               {showMore ? "Hide Details <<" : "Read More >>"}
-            </button>
+            </button> */}
 
             {/* Stats Grid */}
-            <div className="about-stats">
+            {/* <div className="about-stats">
               <div className="stats-item">
                 <h5>4.9 ⭐</h5>
                 <p>Ratings</p>
@@ -212,28 +211,28 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="row vision-row">
-          {/* Left side: Image */}
+        {/* <div className="row vision-row">
+
           <div className="col-lg-6 about-image">
             <h2>
               Organizational <br />
               Vision & Mission
             </h2>
-          </div>
+          </div> */}
 
           {/* Right side: Content */}
-          <div className="col-lg-6 about-content-mission">
+          {/* <div className="col-lg-6 about-content-mission">
             <p>
               Our vision is to be the leading innovator in the jewelry industry,
               and our mission is to provide the highest quality 3D models and
               real-time experiences that allow users to explore the full beauty
               and design of every piece of jewelry we offer.
             </p>
-          </div>
-        </div>
-      </div>
+          </div> */}
+        {/* </div>
+      </div> */}
 
       {/* Contact Us Section */}
       <div

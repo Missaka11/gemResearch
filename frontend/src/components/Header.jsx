@@ -41,7 +41,7 @@ export const Header = () => {
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item px-4">
+                {/* <li className="nav-item px-4">
                   <a
                     className="nav-link header-nav-link fw-semibold"
                     aria-current="page"
@@ -50,7 +50,7 @@ export const Header = () => {
                   >
                     About Us
                   </a>
-                </li>
+                </li> */}
                 <li className="nav-item px-4">
                   <a
                     className="nav-link header-nav-link fw-semibold"
