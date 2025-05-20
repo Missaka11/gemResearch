@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom"; // Import useNavigate
 import "./../styles/GemShapeCapture.css";
 import DollermanImage from "../assets/images/Dollerman.png";
 import { Header } from "../components/Header";
-import { FooterComp } from "../components/FooterComp";
+// import { FooterComp } from "../components/FooterComp";
 
 const GemShapeCapture = () => {
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ const GemShapeCapture = () => {
           </div>
         </div>
       </div>
-      <FooterComp />
+      {/* <FooterComp /> */}
     </>
   );
 };
