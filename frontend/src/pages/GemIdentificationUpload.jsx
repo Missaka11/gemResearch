@@ -21,7 +21,7 @@ const GemIdentificationUpload = () => {
       reader.onload = () => resolve(reader.result);
       reader.onerror = (error) => reject(error);
     });
-  }
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -30,7 +30,7 @@ const GemIdentificationUpload = () => {
         setUploadError("File size should be less than 5MB");
         return;
       }
-      if (!file.type.startsWith('image/')) {
+      if (!file.type.startsWith("image/")) {
         setUploadError("Please select an image file");
         return;
       }
@@ -68,36 +68,38 @@ const GemIdentificationUpload = () => {
 
     try {
       const formData = new FormData();
-      formData.append('image', image);
+      formData.append("image", image);
 
-      const response = await fetch('http://127.0.0.1:5001/segment', {
-        method: 'POST',
+      const response = await fetch("http://127.0.0.1:5008/segment", {
+        method: "POST",
         body: formData,
         onUploadProgress: (progressEvent) => {
-          const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          const percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
           setUploadProgress(percentCompleted);
-        }
+        },
       });
 
       if (!response.ok) {
-        throw new Error('Upload failed');
+        throw new Error("Upload failed");
       }
 
       const result = await response.json();
       setAnalysisResult(result);
-      
+
       // Convert the uploaded image to base64
       const base64Image = await convertImageToBase64(image);
-      
+
       navigate("/GemIdentificationResults", {
-        state: { 
+        state: {
           image: base64Image,
-          analysisResult: result
-        }
+          analysisResult: result,
+        },
       });
     } catch (error) {
-      setUploadError('Failed to upload image. Please try again.');
-      console.error('Upload error:', error);
+      setUploadError("Failed to upload image. Please try again.");
+      console.error("Upload error:", error);
     } finally {
       setUploading(false);
     }
@@ -110,12 +112,16 @@ const GemIdentificationUpload = () => {
         <div className="upload-content">
           <div className="upload-header">
             <h1 className="upload-title">Upload Your Gem Image</h1>
-            <p className="upload-subtitle">Select a high-quality image of your gemstone</p>
+            <p className="upload-subtitle">
+              Select a high-quality image of your gemstone
+            </p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="upload-form">
-            <div 
-              className={`upload-area ${dragActive ? 'drag-active' : ''} ${preview ? 'has-preview' : ''}`} 
+            <div
+              className={`upload-area ${dragActive ? "drag-active" : ""} ${
+                preview ? "has-preview" : ""
+              }`}
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
               onDragOver={handleDrag}
@@ -129,7 +135,7 @@ const GemIdentificationUpload = () => {
                 id="image-upload"
                 disabled={uploading}
               />
-              
+
               <label htmlFor="image-upload" className="upload-label">
                 <div className="upload-icon">
                   <i className="fas fa-cloud-upload-alt"></i>
@@ -142,11 +148,7 @@ const GemIdentificationUpload = () => {
 
               {preview && (
                 <div className="preview-container">
-                  <img
-                    src={preview}
-                    alt="Preview"
-                    className="image-preview"
-                  />
+                  <img src={preview} alt="Preview" className="image-preview" />
                   <div className="preview-overlay">
                     <i className="fas fa-check-circle"></i>
                     <span>Image Ready</span>
@@ -163,20 +165,23 @@ const GemIdentificationUpload = () => {
 
               {uploading && (
                 <div className="upload-progress">
-                  <div className="progress-bar" style={{ width: `${uploadProgress}%` }}></div>
+                  <div
+                    className="progress-bar"
+                    style={{ width: `${uploadProgress}%` }}
+                  ></div>
                   <span>{uploadProgress}%</span>
                 </div>
               )}
             </div>
 
             <div className="upload-buttons">
-              <button 
-                type="submit" 
-                className="upload-btn" 
+              <button
+                type="submit"
+                className="upload-btn"
                 disabled={!image || uploading}
               >
                 <i className="fas fa-arrow-right"></i>
-                {uploading ? 'Uploading...' : 'Continue to Analysis'}
+                {uploading ? "Uploading..." : "Continue to Analysis"}
               </button>
             </div>
           </form>

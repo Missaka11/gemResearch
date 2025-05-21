@@ -9,7 +9,7 @@ const ImageSlider = () => {
       className="image-slider mx-auto"
       pause={false}
     >
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={5008}>
         <img
           className="d-block w-100"
           src="https://images.unsplash.com/photo-1613843351058-1dd06fda7c02?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -21,7 +21,7 @@ const ImageSlider = () => {
           </div>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={5008}>
         <img
           className="d-block w-100"
           src="https://images.unsplash.com/photo-1626784214536-d859187e0bd0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -33,7 +33,7 @@ const ImageSlider = () => {
           </div>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={5000}>
+      <Carousel.Item interval={5008}>
         <img
           className="d-block w-100"
           src="https://images.unsplash.com/photo-1605821771565-35e0d046a2fb?q=70&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
