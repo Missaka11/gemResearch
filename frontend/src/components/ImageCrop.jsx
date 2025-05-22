@@ -73,7 +73,7 @@ const ImageCrop = ({ imageSrc, onCropComplete, onCropDone }) => {
           onZoomChange={handleZoomChange}
         />
       </div>
-      <div className="slider-container mt-3 mb-3 col-md-5 mx-auto">
+      <div className="slider-container-for-cropImage col-md-5 mt-3 mb-3  mx-auto">
         <label htmlFor="zoom-slider">Zoom: {zoom.toFixed(1)}x</label>
         <input
           id="zoom-slider"
