@@ -214,7 +214,7 @@ const ImageCaptureRS = () => {
                     <span>Confidence: {predictionResult.confidence}</span>
                     <div className="progress">
                       <div
-                        className="progress-bar progress-bar-animated"
+                        className="progress-bar-gemAuthentication progress-bar-animated"
                         role="progressbar"
                         style={{
                           width: `${animatedProgress}%`,
